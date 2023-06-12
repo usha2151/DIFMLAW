@@ -1,0 +1,26 @@
+#cat{
+    color: var(--text-black-900);
+}
+.section-2{
+    background-color: var(--text-black-700);
+}
+.category{
+    background-color: var(--bg-black-900);
+    border-radius: 17px !important;
+}
+h6{
+
+ /* font-style: normal; */
+font-weight: 490;
+font-size: 16px;
+line-height: 19px; 
+} 
+p{
+    font-weight: 490;
+font-size: 22px;
+line-height: 28px;
+}
+.ecard:hover{
+ transform: scale(1.05);
+ box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}

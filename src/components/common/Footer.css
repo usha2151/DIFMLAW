@@ -1,0 +1,36 @@
+.btn-primary{
+    background-color: #24478F !important;
+  }
+  .logo{
+    width: 40px;
+  }
+  .footer-1{
+    width: 80%;
+  }
+  .content{
+    width: 250px;
+  }
+  .Devwares{
+    font-weight: 600;
+  }
+  .lis{
+    list-style: none; 
+    cursor: pointer;
+  }
+  .f-1{
+    margin-top: 112px;
+  }
+  
+  .p-1:hover{
+  background-color: #fff !important;
+  color: #24478F;
+  }
+  .s-1{
+    border: 2px solid var(--text-black-900);
+    border-radius: 0px 10px 10px 0px; 
+  }
+  .ss-2{
+    border: 2px solid var(--text-black-700);
+    border-radius:  10px 0px 0px 10px !important;
+  }
+  
