@@ -4,6 +4,9 @@
 .section-2{
     background-color: var(--text-black-700);
 }
+.categories{
+padding-bottom: 90px;
+}
 .category{
     background-color: var(--bg-black-900);
     border-radius: 17px !important;
@@ -24,3 +27,90 @@ line-height: 28px;
  transform: scale(1.05);
  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
+
+#suggest{
+    color: var(--text-black-900-);
+    font-weight: 700;
+font-size: 100%;
+line-height: 75px;
+}
+#ques{
+    width: 40px !important;
+    height: 80px !important;
+}
+.cont{
+    background-color: var(--text-black-700); 
+    border-radius: 9px; 
+}
+.suggestion{
+    position: absolute;
+    margin-left: 6% !important;
+    width: 55% !important;
+    padding: 1.6%;
+    margin-top: -70px;
+    border-radius: 20px !important;
+    height: 16% !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.featured{
+    margin-top: 100px !important;
+}
+
+.lawyers{
+    background-color: var(--bg-black-900);
+}
+.viewbtn{
+    background-color: var(--text-black-700);
+    border-radius: 50px !important;
+    font-size: smaller;
+}
+
+.exp{
+    font-size: 69.59% !important;
+
+font-weight: 600 !important;
+
+
+}
+.card{
+    border-radius: 17px !important;
+}
+.lawyers-desc{
+    font-size: 13px !important;
+    color: #585858;
+
+font-style: normal;
+font-weight: 490 !important;
+/* font-size: 12px; */
+line-height: 21px !important;
+}
+
+.city{
+    margin-top: -7px !important;
+    font-size: 14px !important;
+    /* font-weight: 0 !important; */
+}
+
+.lawyers-card{
+    margin-top: 59px !important;
+    width: 300px;
+    justify-content: space-between !important;
+    margin: auto;
+    
+}
+
