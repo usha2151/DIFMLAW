@@ -15,7 +15,7 @@ const EditProfile = () => {
     const [user, loading] = useAuthState(auth);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
+    const [number, setNumber] = useState('');
     const [experience, setExperience] = useState('');
     const [specialization, setSpecialization] = useState('');
     const [education, setEducation] = useState('');
@@ -27,24 +27,26 @@ const EditProfile = () => {
 
     const fetchUserName = async () => {
     
-    //     const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
-    //   const doc = await getDocs(q);
-    //   const data = doc.docs[0].data();
-        // doc.forEach(value=>{
-        //     res.push({
-        //         id: value.id,
-        //         ...value.data()
-        //     });
-        // });
-        // console.log(res[0].id);
-        // getUserId(res[0].id);
-        // const data = doc.docs[0].data();
-        // setUsername(data.username);
-        // setEmail(data.email);
-        // setPhone(data.phone);
-        // setExperience(data.experience);
-        // setEducation(data.education);
-        // setWork(data.work);
+      const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+      const res = [];
+        const doc = await getDocs(q);
+        doc.forEach(value=>{
+            res.push({
+                id: value.id,
+                ...value.data()
+            });
+        });
+        console.log(res[0].id);
+        getUserId(res[0].id);
+        const data = doc.docs[0].data();
+        setUsername(data.username);
+        setEmail(data.email);
+        setNumber(data.number);
+        setSpecialization(data.specialization);
+        setExperience(data.experience);
+        setEducation(data.education);
+        setWork(data.work);
+        setBio(data.summary);
 
       
     };
@@ -56,30 +58,30 @@ const EditProfile = () => {
     }, [user, loading]);
    
 
-// const handleUpdate = async (e) => {
-//     e.preventDefault()
-//     const taskDocRef = doc(db,"lawyers", setUserId);
+const handleUpdate = async (e) => {
+    e.preventDefault()
+    const taskDocRef = doc(db,"lawyers", setUserId);
 
-//     try{
-//       await updateDoc(taskDocRef,{
-//         username: username,
-//         email: email,
-//         number: phone,
-//         experience: experience,
-//         specialization: specialization,
-//         education: education,
-//         work: work,
-//         image: picture,
-//         state: state,
-//         summary: bio,
+    try{
+      await updateDoc(taskDocRef,{
+        username: username,
+        email: email,
+        number: number,
+        experience: experience,
+        specialization: specialization,
+        education: education,
+        work: work,
+        image: picture,
+        state: state,
+        summary: bio,
         
-//       }).then(() => {
-//         alert("Document successfully updated!");
-//       })
-//     } catch (err) {
-//       alert(err)
-//     }    
-//   }
+      }).then(() => {
+        alert("Document successfully updated!");
+      })
+    } catch (err) {
+      alert(err)
+    }    
+  }
   return (
     <div>
       <div className="container-xl px-4 mt-4" id='sections'>
@@ -104,29 +106,29 @@ const EditProfile = () => {
             <div className="card mb-4">
                 <div className="card-header">User Details</div>
                 <div className="card-body">
-                    <form >
+                    <form onSubmit={handleUpdate}>
                         {/* <!-- Form Row--> */}
                         <div className="row gx-3 mb-3">
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputFirstName">Full Name</label>
-                                <input className="form-control" id="inputFirstName" type="text" placeholder={username} value={username} onChange={(e) => {setUsername(e.target.value)}}/>
+                                <input className="form-control ed" id="inputFirstName" type="text" placeholder={username} value={username} onChange={(e) => {setUsername(e.target.value)}}/>
                             </div>
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputEmail">Email</label>
-                                <input className="form-control" id="inputEmail" type="email" placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+                                <input className="form-control ed" id="inputEmail" type="email" placeholder={email} value={email} onChange={(e) => {setEmail(e.target.value)}}/>
                             </div>
                         </div>
                         <div className="row gx-3 mb-3">
                         <div className="col-md-6">
                                 <label className="small mb-1" for="inputMobile">Mobile</label>
-                                <input className="form-control" id="inputMobile" type="tel" placeholder={phone} value={phone} onChange={(e) => {setPhone(e.target.value)}}/>
+                                <input className="form-control ed" id="inputMobile" type="tel" placeholder={number} value={number} onChange={(e) => {setNumber(e.target.value)}}/>
                             </div>
                             
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputExperience">Experience</label>
                                 <select id="inputExperience" value={experience}
                                  onChange={(e) => {setExperience(e.target.value)}} class="form-select">
-                                       <option selected>Choose...</option>
+                                       <option selected>{experience}</option>
                                         <option value="1 Year">1 Year</option>
                                          <option value="2 Year">2 Years</option>
                                           <option value="3 Year">3 Years</option>
@@ -146,7 +148,7 @@ const EditProfile = () => {
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputSpecialization">Specialization</label>
                                 <select id="inputSpecialization" value={specialization} onChange={(e) => {setSpecialization(e.target.value)}} class="form-select">
-                                   <option selected>Select your expertise</option>
+                                   <option selected>{specialization}</option>
                                    <option value="Injury Lawyers">Injury Lawyers</option>
                                      <option value="Family Law Lawyers">Family Law Lawyers</option>
                                        <option value="Defense Lawyers">Defense Lawyers</option>
@@ -161,7 +163,7 @@ const EditProfile = () => {
                            
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputEducation">Education</label>
-                                <input className="form-control" id="inputEducation" type="text" name="Education" placeholder={education} value={education} onChange={(e) => {setEducation(e.target.value)}} />
+                                <input className="form-control ed" id="inputEducation" type="text" name="Education" placeholder={education} value={education} onChange={(e) => {setEducation(e.target.value)}} />
                             </div>
                         </div>
                         <div className="row gx-3 mb-3">
@@ -177,12 +179,12 @@ const EditProfile = () => {
                            
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputState">State</label>
-                                <input className="form-control" id="inputState" type="text" name="state" placeholder={state} value={state} onChange={(e) => {setState(e.target.value)}} />
+                                <input className="form-control ed" id="inputState" type="text" name="state" placeholder={state} value={state} onChange={(e) => {setState(e.target.value)}} />
                             </div>
                         </div>
                         <div class="col-md-12">
               <label for="inputZip" class="form-label">Bio/Profile Summary</label>
-              <textarea class="form-control"  id="form6Example7" rows="4" placeholder={bio} value={bio} onChange={(e) => {setBio(e.target.value)}}></textarea>
+              <textarea class="form-control ed"  id="form6Example7" rows="4" placeholder={bio} value={bio} onChange={(e) => {setBio(e.target.value)}}></textarea>
             </div>
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
