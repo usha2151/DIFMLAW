@@ -15,8 +15,8 @@ const auth = getAuth(app);
 const Signup = () => {
 
   const navigate = useNavigate();
-  const [isLawyer, setIsLawyer] = useState(false);
-  const [isUser, setIsUser] = useState(true);
+  const [isLawyer, setIsLawyer] = useState(true);
+  const [isUser, setIsUser] = useState(false);
 
   const handleRegisterAsLawyer = () => {
     setIsLawyer(true);
@@ -155,10 +155,9 @@ const Signup = () => {
 
   return (
     <>
-      <p className='title'>Register as a Lawyer</p>
       <div className='container  form-container mt-4 form-control'>
-        <button type="button" class="btn btn-light me-4 mt-2" onClick={handleRegisterAsLawyer}>Register as Lawyer</button>
-        <button type="button" class="btn btn-primary mt-2" onClick={handleRegisterAsUser}>Register as User</button>
+        <button type="button" class="btn btn-primary me-4 mt-2" onClick={handleRegisterAsLawyer}>Register as Lawyer</button>
+        <button type="button" class="btn btn-light mt-2" onClick={handleRegisterAsUser}>Register as User</button>
 
 
         {isLawyer && (

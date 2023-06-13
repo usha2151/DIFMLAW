@@ -34,3 +34,22 @@
     border-radius:  10px 0px 0px 10px !important;
   }
   
+.dropdown-menu{
+    margin-top: 5px !important;
+    
+}
+.profile{
+    width: 30% !important;
+    margin-right: 10px !important;
+    
+}
+#profiles{
+    width: 25%;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.btn-group{
+    margin-left: 65px;
+    border: 2px solid var(--text-black-900);
+    border-radius: 10px 10px 10px 10px; 
+}

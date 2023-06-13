@@ -108,6 +108,12 @@ line-height: 21px !important;
     margin: auto;
     
 }
+.lawyers_profile{
+    margin: 60px;
+}
+.lawyer{
+    margin-top: -20px !important;
+}
 
 /* media query for lawyer profile card */
 @media screen and (max-width: 587px) {

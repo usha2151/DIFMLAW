@@ -50,7 +50,7 @@ const Login = () => {
               placeholder="Enter a valid email address"   
               name="email" 
               value={email}
-              onChange={handleEmailChange}/>            
+              onChange={handleEmailChange} required/>            
           </div>
 
        
@@ -60,13 +60,13 @@ const Login = () => {
               placeholder="Enter Password" 
               name="password" 
               value={password}
-              onChange={handlePasswordChange}/>          
+              onChange={handlePasswordChange} required/>          
           </div>
           <p className='text-danger fs-6 mt-4'>{error}</p>
           <div class="d-flex justify-content-between align-items-center">
 
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" required/>
               <label class="form-check-label" for="form2Example3">
                 Remember me
               </label>
@@ -77,7 +77,7 @@ const Login = () => {
           <div class="text-center text-lg-start mt-4 pt-2">
             <button  class="btn btn-primary btn-lg"
               style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}} >Login</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/signup"
                 class="link-danger">Register</a></p>
           </div>
 
