@@ -16,16 +16,16 @@ const Signup = () => {
 
   const navigate = useNavigate();
   const [isLawyer, setIsLawyer] = useState(false);
-  const [isUser, setIsUser] = useState(false);
-
-  const handleRegisterAsUser = () => {
-    setIsLawyer(false);
-    setIsUser(true);
-  };
+  const [isUser, setIsUser] = useState(true);
 
   const handleRegisterAsLawyer = () => {
     setIsLawyer(true);
     setIsUser(false);
+  };
+
+  const handleRegisterAsUser = () => {
+    setIsLawyer(false);
+    setIsUser(true);
   };
 
 
@@ -119,16 +119,6 @@ const Signup = () => {
     }
 
   };
-
-  // useEffect(() => {
-  //   if(loading){
-  //     return;
-  //   }
-  //   if(user) 
-  //     navigate("/profile");
-
-  // },[user, loading]);
-
 
 
   //this is for users
@@ -308,4 +298,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Signup;
