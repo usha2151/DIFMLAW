@@ -104,7 +104,7 @@ useEffect(()=>{
           <div className="row mx-auto lawyers_profile">
           {
             lawyers?.map((data,i)=>(
-            <div className="col-lg-3 rounded-3 mt-4 bg-white mb-4 card shadow p-3 mb-5 bg-body rounded mt-5 lawyers-card"  key={i}>
+            <div className="col-lg-3 rounded-3 mt-4 bg-white card shadow p-3 mb-5 bg-body rounded lawyers-card"  key={i}>
               <div className="row  mt-2" id="lawyer">
                 <div className="col-lg-4 col-sm-4 col-6">
                   <img src="Vector.svg" className="ms-2"></img>
