@@ -1,9 +1,10 @@
-#cat{
-    color: var(--text-black-900);
+.cat{
+    color: var(--text-black-900) !important;
 }
 .section-2{
     background-color: var(--text-black-700);
 }
+
 .categories{
 padding-bottom: 90px;
 }
@@ -29,7 +30,7 @@ line-height: 28px;
 }
 
 #suggest{
-    color: var(--text-black-900-);
+    color: var(--text-black-900);
     font-weight: 700;
 font-size: 100%;
 line-height: 75px;
@@ -52,16 +53,10 @@ line-height: 75px;
     height: 16% !important;
 }
 
-
-
-
-
-
-
-
-
-
-
+.cat_law{
+    height: 200px;
+    background-color: var(--text-black-700);
+}
 
 
 
@@ -114,3 +109,13 @@ line-height: 21px !important;
     
 }
 
+/* media query for lawyer profile card */
+@media screen and (max-width: 587px) {
+
+    .sugg  {
+      font-size: smaller;
+      margin-bottom: 10px !important;
+      
+    }
+  
+  }
