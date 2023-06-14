@@ -26,11 +26,11 @@
   color: #24478F;
   }
   .s-1{
-    border: 2px solid var(--text-black-900);
+    border: 2px solid var(--text-blue-900);
     border-radius: 0px 10px 10px 0px; 
   }
   .ss-2{
-    border: 2px solid var(--text-black-700);
+    border: 2px solid var(--text-blue-700);
     border-radius:  10px 0px 0px 10px !important;
   }
   

@@ -1,9 +1,8 @@
 :root{
-  --bg-black-900:#F5F5F5;
-  --bg-black-100:#333333;
+  --bg-dimwhite-900:#F5F5F5;
+  --bg-gray-100:#333333;
   --bg-black-50: #000000;
-  --text-black-900:#24478F;
-  --text-black-700:#4D7CD3;
-  --text-gray-300: #F5F5F5;
-  --text-black-150:#333333;
+  --text-blue-900:#24478F;
+  --text-blue-700:#4D7CD3;
+  --text-white-300: #F5F5F5;
 }
