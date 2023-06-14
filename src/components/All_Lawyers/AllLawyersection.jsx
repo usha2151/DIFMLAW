@@ -32,12 +32,12 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
     {
        currentUsers?.map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
-      <div className="row mx-auto"> 
-      <div className="col-md-6">
-          <div className="row">
-            <div className="col-md-3 mt-3">
-                <img src={lawyer_pic} className='rounded-full' alt="" />
-            </div>
+    <div className="row mx-auto"> 
+    <div className="col-md-6">
+        <div className="row">
+           <div className="col-md-3 mt-3">
+               <img src={lawyer_pic} className='rounded-full' alt="" />
+          </div>
 
           <div className="col-md-9">
           <h4 className='mt-2'>{data.specialization}</h4>
@@ -46,23 +46,25 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
           <p className='fs-6'>{data.work}</p>
           <p className='fs-6 mx-4'>{data.experience}  in practice</p>
           </div>
-      </div>
-
-      <div className="col-md-6">
-          <div className="row">
-            <div className="col-md-10 d-flex justify-content-end">
-            <button className="btn btn-primary cont profi w-75">
-              View Profile
-            </button>
-            </div>
-
-            <div className="col-md-1 mx-3">
-            <i class="bi bi-bookmark fw-bold fs-3"></i>
-            <p className='fs-6 savelist'>save</p>
-            </div>
           </div>
-      </div>
-      </div>
+        </div>
+    </div>
+
+    <div className="col-md-6">
+        <div className="row">
+           <div className="col-md-10 d-flex justify-content-end">
+           <button className="btn btn-primary cont profi w-75">
+             View Profile
+           </button>
+          </div>
+
+          <div className="col-md-1 mx-3">
+          <i class="bi bi-bookmark fw-bold fs-3"></i>
+          <p className='fs-6 savelist'>save</p>
+          </div>
+        </div>
+    </div>
+    </div>
  </div>
  ))
     }
