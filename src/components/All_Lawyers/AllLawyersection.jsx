@@ -44,7 +44,7 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
           <h5 className='nam fs-6'>{data.username}</h5>
           <div className='d-flex'>
           <p className='fs-6'>{data.work}</p>
-          <p className='fs-6 mx-4'>{data.experience}  Years in practice</p>
+          <p className='fs-6 mx-4'>{data.experience}  in practice</p>
           </div>
           </div>
         </div>
