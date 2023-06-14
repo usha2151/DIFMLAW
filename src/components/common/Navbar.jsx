@@ -16,10 +16,10 @@ const Navbar = () => {
   const [name, setName] = useState("");
   const fetchUserName = async () => {
   
-      const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-      setName(data.username);
+      // const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+      // const doc = await getDocs(q);
+      // const data = doc.docs[0].data();
+      // setName(data.username);
       // console.log(user.uid);
     
   };
@@ -95,7 +95,7 @@ return (
           <li><Link className="dropdown-item" to="/dashboard"><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
           <li><Link className="dropdown-item" to="/profile"><i className="fa-solid fa-user-pen"></i><span>  Change Password</span></Link></li>
           <li><hr className="dropdown-divider"/></li>
-         <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => signOut(auth)}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li>
+         {/* <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => signOut(auth)}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li> */}
        </ul>
      </div>
     </div>
