@@ -38,15 +38,9 @@ const All_lawyers_card = () => {
                 <img src={lawyer_pic} className='rounded-full' alt="" />
             </div>
 
-            <div className="col-lg-8 col-6">
-          
+            <div className="col-lg-8 col-6">      
             <h5 className='mt-2 fs-6 lawyer_name'>{data.username}</h5>
             <span className='fs-6 lawyer_work_type'>{data.work}</span>
-            {/* <span className='lawyer_work_experience'>{data.experience}  Years in practice</span> */}
-            {/* <div className='d-flex'> */}
-             {/* <p className='fs-6 lawyer_work_type'>{data.work} {data.experience} in practice</p> */}
-            {/* <p className='fs-6 mx-4 lawyer_work_experience'>{data.experience}  Years in practice</p> */}
-            {/* </div> */}
             </div>
           </div>
       </div>
