@@ -6,6 +6,7 @@ import DIFMLAWPropertylawyers from "./DIFMLAWPropertyLawyer.svg";
 import DIFMLAWinjurylawyer from "./DIFMLAWinjurylawyer.svg";
 import DIFMLAWDefencelawyers from "./DIFMLAWDefencelawyers.svg";
 import DIFMLAWFamilylawyers from "./DIFMLAWFamilylawlawyers.svg";
+import lawyer_pic from "./lawyer_pic.png";
 
 
 
@@ -17,5 +18,6 @@ export {
         DIFMLAWPropertylawyers,
          DIFMLAWinjurylawyer, 
          DIFMLAWDefencelawyers,
-         DIFMLAWFamilylawyers
+         DIFMLAWFamilylawyers,
+         lawyer_pic,
 }

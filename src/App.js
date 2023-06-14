@@ -6,6 +6,8 @@ import Hero from "./components/Hero/Hero";
 import Signup from './components/form/Signup';
 import EditProfile from './components/EditProfile/EditProfile'
 import Lawyers_profile_card from "./components/job_description_page/Lawyers_profile_card/Lawyers_profile_card";
+import EditProfile from './components/EditProfile/EditProfile';
+import All_Lawyers from "./components/All_Lawyers/All_Lawyers";
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<EditProfile />} />
         <Route path="/job" element={<Lawyers_profile_card />} />
+        <Route path="/alllawyer" element={<All_Lawyers />} />
       </Routes>
     
      <Footer />
