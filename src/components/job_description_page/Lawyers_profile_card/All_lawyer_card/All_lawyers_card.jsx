@@ -30,9 +30,9 @@ const All_lawyers_card = () => {
     <>
     {
        currentUsers?.map((data,i)=>(
-        <div className='view_buttons mt-4 alllawyersection border border-dark h-50'>
+        <div className='view_buttons load_more mt-4 border border-dark h-50'>
       <div className="row"> 
-      <div className="col-md-6">
+      <div className="col-lg-9">
           <div className="row p-1">
             <div className="col-lg-4 col-6 mt-2">
                 <img src={lawyer_pic} className='rounded-full' alt="" />
@@ -40,9 +40,9 @@ const All_lawyers_card = () => {
 
             <div className="col-lg-8 col-6">
           
-            <h5 className='mt-2 fs-6 lawyer_name'>{data.username}</h5>
-            <span className='fs-6 lawyer_work_type'>{data.work}</span>
-            {/* <span className='lawyer_work_experience'>{data.experience}  Years in practice</span> */}
+            <h5 className='mt-2 fs-6 lawyer_name fw-bold'>{data.username}</h5>
+            <span className='fs-6 lawyer_work_type fw-bold'>{data.work}</span>&nbsp;<span className="fw-bold mt-2 fs-6">*****</span><br></br>
+            <span className='lawyer_work_experience fw-bold'>{data.experience}  in practice</span>
             {/* <div className='d-flex'> */}
              {/* <p className='fs-6 lawyer_work_type'>{data.work} {data.experience} in practice</p> */}
             {/* <p className='fs-6 mx-4 lawyer_work_experience'>{data.experience}  Years in practice</p> */}
@@ -51,13 +51,13 @@ const All_lawyers_card = () => {
           </div>
       </div>
 
-      <div className="col-md-6">
+      <div className="col-lg-3">
           <div className="row">
-            <div className="col-md-10 d-flex justify-content-end">
-            <button className="btn btn-primary cont mt-3 w-75">
+           
+            <button className="view_more btn btn-primary cont mt-4 w-75 fs-6">
               View Profile
             </button>
-            </div>
+            
 
             
           </div>
@@ -66,8 +66,8 @@ const All_lawyers_card = () => {
  </div>
  ))
     }
-    <div className='me-4'>
-    <Link to='/alllawyer'><button className='btn btn-primary w-50  mt-4'>View more</button>
+    <div className='mt-2'>
+    <Link className='abd' to='/alllawyer'><p>View More</p>
 </Link></div>
    
 
