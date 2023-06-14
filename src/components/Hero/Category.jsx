@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Category.css";
+import Contect_us from '../Contect_us/Contect_us';
 import CategoryCards from "./CategoryCards";
 import { category } from "../constant/data";
 import Join_Network from '../join_network/Join_Network';
@@ -44,7 +45,7 @@ const Category = () => {
 
           {/* suggestions field */}
 
-          <div className="row bg-white want  rounded-3 suggestion shadow w-50 mx-auto">
+          {/* <div className="row bg-white want  rounded-3 suggestion shadow w-50 mx-auto">
             <div className="col-lg-6 text-center col-xs-6">
               <p className="fs-1 fw-bold">
                 Want{" "}
@@ -61,7 +62,8 @@ const Category = () => {
                 Contact Now
               </button>
             </div>
-          </div>
+          </div> */}
+          <Contect_us />
         </div>
       </div>
 

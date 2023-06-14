@@ -39,14 +39,12 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
                 <img src={lawyer_pic} className='rounded-full' alt="" />
             </div>
 
-            <div className="col-md-9">
-            <h4 className='mt-2'>{data.specialization}</h4>
-            <h5 className='nam fs-6'>{data.username}</h5>
-            <div className='d-flex'>
-            <p className='fs-6'>{data.work}</p>
-            <p className='fs-6 mx-4'>{data.experience}  Years in practice</p>
-            </div>
-            </div>
+          <div className="col-md-9">
+          <h4 className='mt-2'>{data.specialization}</h4>
+          <h5 className='nam fs-6'>{data.username}</h5>
+          <div className='d-flex'>
+          <p className='fs-6'>{data.work}</p>
+          <p className='fs-6 mx-4'>{data.experience}  in practice</p>
           </div>
       </div>
 
