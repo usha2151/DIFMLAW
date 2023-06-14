@@ -4,7 +4,8 @@ import Footer from './components/common/Footer';
 import Login from "./components/form/Login";
 import Hero from "./components/Hero/Hero";
 import Signup from './components/form/Signup';
-import EditProfile from './components/EditProfile/EditProfile'
+import EditProfile from './components/EditProfile/EditProfile';
+import All_Lawyers from "./components/All_Lawyers/All_Lawyers";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<EditProfile />} />
+        <Route path="/alllawyer" element={<All_Lawyers />} />
       </Routes>
     
      <Footer />
