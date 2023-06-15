@@ -16,6 +16,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
+  const [image, setImage] = useState("");
   const fetchUserName = async () => {
     // auth check
     onAuthStateChanged(auth, async (user) => {
@@ -26,6 +27,8 @@ const Navbar = () => {
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
       setName(data.username);
+      console.log(data)
+      setImage(data.image);
       console.log(user);
       
         const uid = user.uid;
@@ -112,12 +115,11 @@ return (
         </li>
       </ul>
       <div className="btn-group">
-        <Link className="bg-white dropdown-toggle new3 p-1 text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-           <img src={logo} id='profiles' alt="avatar" />
+        <Link className="bg-white dropdown-toggle new3 p-1  border border-3 border-primary text-decoration-none npjh" data-bs-toggle="dropdown" aria-expanded="false">
+           <img src={image} id='profiles' className="per1  border border-3 border-primary" alt="avatar" />
              <b>{name}</b>
        </Link>
        <ul className="dropdown-menu">
-          <li><Link className="dropdown-item" to="#"><span><img src={logo} className='profile' alt="avatar" /><b>{name}</b></span></Link></li>
           <li><Link className="dropdown-item" to="/profile"><i className="fa-solid fa-user-pen"></i><span >Profile</span></Link></li>
           <li><Link className="dropdown-item" to="/dashboard"><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
           <li><Link className="dropdown-item" to="/profile"><i className="fa-solid fa-user-pen"></i><span>  Change Password</span></Link></li>

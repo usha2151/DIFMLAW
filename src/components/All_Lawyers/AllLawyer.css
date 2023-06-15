@@ -49,3 +49,8 @@
     background: rgb(224, 224, 224);
     outline: none;
  }
+ .lawpicd{
+    height: 70px;
+    border-radius: 50%;
+    width: 70px;
+ }

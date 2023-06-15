@@ -114,6 +114,17 @@ line-height: 21px !important;
 .lawyer{
     margin-top: -20px !important;
 }
+.lawpics{
+    height: 65px;
+    border-radius: 50%;
+    width: 65px;
+    margin-top: -8px;
+}
+.summ{
+    margin: 0;
+    text-indent: 0rem;
+    text-align: justify;
+  }
 
 /* media query for lawyer profile card */
 @media screen and (max-width: 587px) {

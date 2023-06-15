@@ -22,7 +22,7 @@ const EditProfile = () => {
     const [work, setWork] = useState('');
     const [picture, setPicture] = useState('');
     const [bio, setBio] = useState('');
-    const [state, setState] = useState('');
+    const [location, setLocation] = useState('');
     const [setUserId ,getUserId] = useState("");
 
     const fetchUserName = async () => {
@@ -44,9 +44,11 @@ const EditProfile = () => {
         setNumber(data.number);
         setSpecialization(data.specialization);
         setExperience(data.experience);
-        setEducation(data.education);
+        setLocation(data.address);
         setWork(data.work);
         setBio(data.summary);
+        setEducation(data.education);
+        setPicture(data.image);
 
       
     };
@@ -72,7 +74,7 @@ const handleUpdate = async (e) => {
         education: education,
         work: work,
         image: picture,
-        state: state,
+        address: location,
         summary: bio,
         
       }).then(() => {
@@ -92,7 +94,7 @@ const handleUpdate = async (e) => {
                 <div className="card-header">Profile Picture</div>
                 <div className="card-body text-center">
                    
-                    <img className="img-account-profile rounded-circle mb-2" src={profile} alt=""/>
+                    <img className="img-account-profile uspro mb-2" src={picture} alt=""/>
                    
                     <div className="small font-italic text-muted mb-4"><b className='fs-4'>{username}</b></div>
                     <label for="file" className="btn btn-primary w-10">Upload New Image</label>
@@ -163,7 +165,7 @@ const handleUpdate = async (e) => {
                            
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputEducation">Education</label>
-                                <input className="form-control ed" id="inputEducation" type="text" name="Education" placeholder={education} value={education} onChange={(e) => {setEducation(e.target.value)}} />
+                                <input className="form-control ed" id="inputEducation" type="text" name="education" placeholder="Describe your education qualifications" value={education} onChange={(e) => {setEducation(e.target.value)}} />
                             </div>
                         </div>
                         <div className="row gx-3 mb-3">
@@ -178,8 +180,11 @@ const handleUpdate = async (e) => {
                             </div>
                            
                             <div className="col-md-6">
-                                <label className="small mb-1" for="inputState">State</label>
-                                <input className="form-control ed" id="inputState" type="text" name="state" placeholder={state} value={state} onChange={(e) => {setState(e.target.value)}} />
+                            <label className="small mb-1" for="inputWork">Enter or choose location</label>
+                            <div class="input-group mb-3">
+                             <input type="text" class="form-control" id="inputZip" placeholder="Location, country, city, state..." value={location} onChange={(e) => {setLocation(e.target.value)}}/>
+                             <span class="input-group-text" ><i class="bi bi-geo-alt"></i></span>
+                           </div>
                             </div>
                         </div>
                         <div class="col-md-12">
