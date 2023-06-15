@@ -3,9 +3,10 @@ import { collection, getDocs} from "firebase/firestore";
 import { db } from '../../firebase';
 import { lawyer_pic } from '../images';
 import ReactPaginate from 'react-paginate';
+import { useNavigate } from 'react-router-dom';
 
-const AllLawyersection = () => {
-
+const AllLawyersection = (props) => {
+const navigate = useNavigate();
     const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
        
@@ -20,6 +21,7 @@ const AllLawyersection = () => {
 
 useEffect(()=>{
     fetchPost();
+    console.log(props.name)
 }, [])
 
 const [currentPage, setCurrentPage] = useState(0);
@@ -30,7 +32,7 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
   return (
     <>
     {
-       currentUsers?.map((data,i)=>(
+       currentUsers?.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
     <div className="col-md-6">
@@ -53,7 +55,7 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
     <div className="col-md-6">
         <div className="row">
            <div className="col-md-10 d-flex justify-content-end">
-           <button className="btn btn-primary cont profi w-75">
+           <button className="btn btn-primary cont profi w-75" onClick={(e)=> navigate(`/job/${data.id}`)}>
              View Profile
            </button>
           </div>
@@ -68,22 +70,6 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
  </div>
  ))
     }
-
-{/* <nav aria-label="..." className='mt-5'>
-  <ul class="pagination">
-    <li class="page-item disabled">
-      <span class="page-link">Previous</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active" aria-current="page">
-      <span class="page-link">2</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav> */}
 
 <div id="react-paginate" className='mt-5'>
           <ReactPaginate

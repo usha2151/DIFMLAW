@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./AllLawyer.css";
 import { lawyer_pic } from '../images';
 import Lawyerscards from '../Hero/Lawyerscards';
 import AllLawyersection from './AllLawyersection';
 
 const All_Lawyers = () => {
+  const [searchLawyer, setLawyerSearch] = useState("");
+  const SubmitLawyer = () =>{
+    console.log(searchLawyer);
+    alert("search lawyer");
+  }
   return (
     <>
    
@@ -14,8 +19,8 @@ const All_Lawyers = () => {
     <div class="row mt-5 ">
       <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Enter job title, keyword..."/>
-          <span class="input-group-text btn-primary"><i class="bi bi-search"></i></span>
+          <input type="text" class="form-control" onChange={(e)=> setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..."/>
+          <span class="input-group-text btn-primary"><i class="bi bi-search" onClick={SubmitLawyer}></i></span>
         </div>
       </div>
       <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
@@ -198,7 +203,7 @@ const All_Lawyers = () => {
        </div>
 
       {/* all lawyer section cards start */}
-       <AllLawyersection />
+       <AllLawyersection name={searchLawyer}/>
       {/* all lawyer section cards end */}
 
      </div>

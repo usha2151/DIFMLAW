@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Lawyer from "../../images/lawyers_profile.png";
 import { lawyer_pics } from "../../images";
 import "./Lawyers_profile_card.css";
 import All_lawyers_card from "./All_lawyer_card/All_lawyers_card";
 import Lawyers_personal_information from "../Lawyers_personal_information/Lawyers_personal_information";
 import Expertise_and_services from "../Expertise_and_service/Expertise_and_services";
-
+import { useParams } from "react-router-dom";
+import { query, collection, getDocs, where } from "firebase/firestore";
+import { db } from "../../../firebase";
 const Lawyers_profile_card = () => {
+  const params = useParams();
+  const fetchData = async () => {
+    const q = query(collection(db, "lawyers"));
+    const doc = await getDocs(q);
+    // console.log(doc.docs[0].data());
+    const data = doc.docs[0].data();
+    console.log(data);
+    console.log(params.LawId);
+  }
+  useEffect (() => {
+    fetchData();
+  },[])
+ 
+  
   return (
     <div className="container">
       <div className="row">
