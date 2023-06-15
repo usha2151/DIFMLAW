@@ -31,7 +31,7 @@ const Signup = () => {
   const [phone, setPhone] = useState("");
   const [experience, setExperience] = useState("");
   const [specialization, setSpecialization] = useState("");
-  const [education, setEducation] = useState("");
+  const [location, setLocation] = useState("");
   const [work, setWork] = useState("");
   const [picture, setPicture] = useState([]);
   const [bio, setBio] = useState("");
@@ -59,8 +59,8 @@ const Signup = () => {
   const handleSpecializationChange = (event) => {
     setSpecialization(event.target.value);
   };
-  const handleEducationChange = (event) => {
-    setEducation(event.target.value);
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
   };
   const handleWorkChange = (event) => {
     setWork(event.target.value);
@@ -92,7 +92,7 @@ const Signup = () => {
       !phone ||
       !experience ||
       !specialization ||
-      !education ||
+      !location ||
       !work ||
       !picture ||
       !bio ||
@@ -133,7 +133,7 @@ const Signup = () => {
                         number: phone,
                         experience: experience,
                         specialization: specialization,
-                        education: education,
+                        address: location,
                         work: work,                      
                         summary: bio,
                         image: url
@@ -297,16 +297,13 @@ const Signup = () => {
 
             <div class="col-md-6">
               <label for="inputZip" class="form-label">
-                Education
+               Enter or choose location
               </label>
-              <input
-                type="text"
-                placeholder="Describe your educational Qualification"
-                class="form-control"
-                id="inputZip"
-                value={education}
-                onChange={handleEducationChange}
-              />
+               <div class="input-group mb-3">
+               <input type="text" class="form-control" id="inputZip" placeholder="Location, country, city, state..." value={location}
+                onChange={handleLocationChange}/>
+               <span class="input-group-text" ><i class="bi bi-geo-alt"></i></span>
+             </div>
             </div>
             <div class="col-md-6">
               <label for="inputState" class="form-label">

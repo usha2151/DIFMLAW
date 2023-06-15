@@ -38,7 +38,12 @@
     border: 2px solid var(--text-blue-700);
     border-radius:  10px 0px 0px 10px !important;
   }
-  
+  .per1{
+    height: 45px;
+    border-radius: 50%;
+    width: 45px !important;
+    margin-top: -8px;
+  }
 .dropdown-menu{
     margin-top: 5px !important;
     

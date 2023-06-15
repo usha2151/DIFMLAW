@@ -34,7 +34,7 @@ useEffect(()=>{
           </div>
           <div className="col-lg-8 col-sm-8 col-6">
             <p className="fs-6 mb-0 pb-1 h6">{data.username}</p>
-            <p className="city">kathamndu nepal</p>
+            <p className="city">{data.address}</p>
           </div>
         </div>
 
@@ -42,11 +42,8 @@ useEffect(()=>{
 
         <div className="mt-3 ms-3 me-3">
           <p className="font-weight-bold fs-6 mb-1">{data.work}</p>
-          <p className="fs-6 lawyers-desc font-weight-normal lh-base">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Consequat nunc ac a magna at elementum. Cras arcu varius in
-            aliquam habitant fermentum. Mi sit lorem mollis vitae quis
-            curabitur vestibulum.
+          <p className="fs-6 lawyers-desc font-weight-normal lh-base text-justify summ">
+            {data.summary}
           </p>
           <div className="row mt-4 practice">
             <div className="col-lg-6 col-sm-6 col-6">

@@ -120,6 +120,11 @@ line-height: 21px !important;
     width: 65px;
     margin-top: -8px;
 }
+.summ{
+    margin: 0;
+    text-indent: 0rem;
+    text-align: justify;
+  }
 
 /* media query for lawyer profile card */
 @media screen and (max-width: 587px) {
