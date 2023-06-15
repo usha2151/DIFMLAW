@@ -1,28 +1,55 @@
 import React, {useEffect, useState} from 'react';
 import "./Footer.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signOut} from 'firebase/auth';
 import { getAuth} from 'firebase/auth';
 import logo from "../images/Vector.svg";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db, app } from '../../firebase';
-
+import { Navigate } from 'react-router-dom';
+import { onAuthStateChanged } from "firebase/auth";
 
 const auth = getAuth(app);
-const Navbar = () => {
 
+const Navbar = () => {
+  const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const fetchUserName = async () => {
+    // auth check
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
   
-      // const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
-      // const doc = await getDocs(q);
-      // const data = doc.docs[0].data();
-      // setName(data.username);
-      // console.log(user.uid);
+      console.log("user is login");
+        const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      setName(data.username);
+      console.log(user);
+      
+        const uid = user.uid;
+        // ...
+        console.log("uid", uid)
+      } else {
+        // User is signed out
+        // ...
+        console.log("user is logged out")
+      }
+    });
+  
     
   };
+  // logout
+  const handleLogout = () => {               
+    signOut(auth).then(() => {
+    // Sign-out successful.
+        navigate("/");
+        alert("Signed out successfully")
+    }).catch((error) => {
+       alert(error);
+    });
+} 
   useEffect(() => {
     if (loading) 
     return;
@@ -95,7 +122,7 @@ return (
           <li><Link className="dropdown-item" to="/dashboard"><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
           <li><Link className="dropdown-item" to="/profile"><i className="fa-solid fa-user-pen"></i><span>  Change Password</span></Link></li>
           <li><hr className="dropdown-divider"/></li>
-         {/* <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => signOut(auth)}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li> */}
+         <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => handleLogout()}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li>
        </ul>
      </div>
     </div>
