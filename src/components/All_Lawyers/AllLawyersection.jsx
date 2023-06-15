@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import { collection, getDocs} from "firebase/firestore";
 import { db } from '../../firebase';
-import { lawyer_pic } from '../images';
+import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 
 const AllLawyersection = () => {
-
-    const [lawyers, setLawyers] = useState([]);
+  
+  const navigate = useNavigate();
+  const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
        
     await getDocs(collection(db, "lawyers"))
@@ -53,7 +54,7 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
     <div className="col-md-6">
         <div className="row">
            <div className="col-md-10 d-flex justify-content-end">
-           <button className="btn btn-primary cont profi w-75">
+           <button className="btn btn-primary cont profi w-75" onClick={(e) => navigate(`/job/${data.id}`)}>
              View Profile
            </button>
           </div>
@@ -69,21 +70,6 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
  ))
     }
 
-{/* <nav aria-label="..." className='mt-5'>
-  <ul class="pagination">
-    <li class="page-item disabled">
-      <span class="page-link">Previous</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active" aria-current="page">
-      <span class="page-link">2</span>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav> */}
 
 <div id="react-paginate" className='mt-5'>
           <ReactPaginate

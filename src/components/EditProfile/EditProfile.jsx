@@ -165,7 +165,7 @@ const handleUpdate = async (e) => {
                            
                             <div className="col-md-6">
                                 <label className="small mb-1" for="inputEducation">Education</label>
-                                <input className="form-control ed" id="inputEducation" type="text" name="Education" placeholder="Describe your education qualifications" value={education} onChange={(e) => {setEducation(e.target.value)}} />
+                                <input className="form-control ed" id="inputEducation" type="text" name="education" placeholder="Describe your education qualifications" value={education} onChange={(e) => {setEducation(e.target.value)}} />
                             </div>
                         </div>
                         <div className="row gx-3 mb-3">
