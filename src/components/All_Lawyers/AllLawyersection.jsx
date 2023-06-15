@@ -3,7 +3,7 @@ import { collection, getDocs} from "firebase/firestore";
 import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
-import { useNavigate } from 'react-router-dom';
+
 
 const AllLawyersection = (props) => {
 const navigate = useNavigate();
