@@ -115,8 +115,8 @@ return (
         </li>
       </ul>
       <div className="btn-group">
-        <Link className="bg-white dropdown-toggle new3 p-1 text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-           <img src={image} id='profiles' className="per1" alt="avatar" />
+        <Link className="bg-white dropdown-toggle new3 p-1  border border-3 border-primary text-decoration-none npjh" data-bs-toggle="dropdown" aria-expanded="false">
+           <img src={image} id='profiles' className="per1  border border-3 border-primary" alt="avatar" />
              <b>{name}</b>
        </Link>
        <ul className="dropdown-menu">
