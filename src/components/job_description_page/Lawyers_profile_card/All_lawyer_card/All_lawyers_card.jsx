@@ -30,7 +30,7 @@ const All_lawyers_card = () => {
     <>
     {
        currentUsers?.map((data,i)=>(
-        <div className='view_buttons load_more mt-4 border border-dark h-50'>
+        <div className='view_buttons load_more mt-2 border border-dark h-50'>
       <div className="row"> 
       <div className="col-lg-9">
           <div className="row p-1">
@@ -41,7 +41,7 @@ const All_lawyers_card = () => {
             <div className="col-lg-8 col-6">
           
             <h5 className='mt-2 fs-6 lawyer_name fw-bold'>{data.username}</h5>
-            <span className='fs-6 lawyer_work_type fw-bold'>{data.work}</span>&nbsp;<span className="fw-bold mt-2 fs-6">*****</span><br></br>
+            <span className='fs-6 lawyer_work_type fw-bold'>{data.work}</span>&nbsp;<span className="fw-bold mt-3 fs-6">*****</span><br></br>
             <span className='lawyer_work_experience fw-bold'>{data.experience}  in practice</span>
             {/* <div className='d-flex'> */}
              {/* <p className='fs-6 lawyer_work_type'>{data.work} {data.experience} in practice</p> */}
@@ -67,7 +67,7 @@ const All_lawyers_card = () => {
  ))
     }
     <div className='mt-2'>
-    <Link className='abd' to='/alllawyer'><p>View More</p>
+    <Link className='abd' to='/alllawyer'><p className='fs-5 text-center'>View More</p>
 </Link></div>
    
 
