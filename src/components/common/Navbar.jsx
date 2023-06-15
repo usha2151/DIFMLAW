@@ -122,11 +122,7 @@ return (
           <li><Link className="dropdown-item" to="/dashboard"><i className="fa-sharp fa-solid fa-pen"></i><span>  Dashboard</span></Link></li>
           <li><Link className="dropdown-item" to="/profile"><i className="fa-solid fa-user-pen"></i><span>  Change Password</span></Link></li>
           <li><hr className="dropdown-divider"/></li>
-<<<<<<< HEAD
-         <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => signOut(auth)}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li>
-=======
          <li><Link to={"/"} className="dropdown-item mt-2 " onClick={() => handleLogout()}><i className="fa-solid fa-right-from-bracket"></i><span>  Sign Out</span></Link></li>
->>>>>>> 9d4fe7666db6c698cf881e8639b2cca00a0e2318
        </ul>
      </div>
     </div>
