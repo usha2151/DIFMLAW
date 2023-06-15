@@ -22,8 +22,12 @@
   }
   
   .p-1:hover{
-  background-color: #fff !important;
-  color: #24478F;
+  background-color: #24478F !important;
+  color:  #fff;
+  }
+  .ficon{
+  border: 2px solid var(--text-blue-900);
+  color:  #24478F;
   }
   .s-1{
     border: 2px solid var(--text-blue-900);

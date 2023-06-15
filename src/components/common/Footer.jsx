@@ -19,16 +19,16 @@ const Footer = () => {
           We are a leading lawyer listing portal, dedicated to simplifying the process of connecting lawyers and clients.
           </p>
           <span class="mt-4 ">
-            <button class="btn btn-dark btn-flat p-1 me-2 px-2 btn-primary" >
+            <button class="btn btn-white btn-flat p-1 me-2 px-2 ficon">
             <i class="bi bi-facebook"></i>
             </button>
-            <button class="btn btn-dark btn-flat p-1 me-2 px-2 btn-primary">
+            <button class="btn btn-white btn-flat p-1 me-2 px-2 ficon">
             <i class="bi bi-linkedin"></i>
             </button>
-            <button class="btn btn-dark btn-flat p-1 me-2 px-2 btn-primary">
+            <button class="btn btn-white btn-flat p-1 me-2 px-2 ficon">
             <i class="bi bi-twitter"></i>
             </button>
-            <button class="btn btn-dark btn-flat p-1 px-2 btn-primary">
+            <button class="btn btn-white btn-flat p-1 px-2 ficon">
             <i class="bi bi-envelope-fill"></i>
             </button>
           </span>
@@ -43,7 +43,7 @@ const Footer = () => {
               <a class="text-dark text-decoration-none" href="/">About</a>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none" href="/">Lawyers</a>
+              <a class="text-dark text-decoration-none" href="/alllawyer">Lawyers</a>
             </li>
           </ul>
         </div>
@@ -51,13 +51,13 @@ const Footer = () => {
           <p class="h5 mb-4" style={{fontWeight: '600'}}>DIFM Group</p>
           <ul class="p-0 lis">
             <li class="my-2">
-              <a class="text-dark text-decoration-none" href="/">Difm.llc</a>
+              <a class="text-dark text-decoration-none" href="https://difm.llc/">Difm.llc</a>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none" href="/">Worldmodelhunt.com</a>
+              <a class="text-dark text-decoration-none" href="https://www.worldmodelhunt.com/">Worldmodelhunt.com</a>
             </li>
             <li class="my-2">
-              <a class="text-dark text-decoration-none" href="/">BragSocial.com</a>
+              <a class="text-dark text-decoration-none" href="https://bragsocial.com/">BragSocial.com</a>
             </li>
           </ul>
         </div>

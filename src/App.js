@@ -4,7 +4,6 @@ import Footer from './components/common/Footer';
 import Login from "./components/form/Login";
 import Hero from "./components/Hero/Hero";
 import Signup from './components/form/Signup';
-
 import Lawyers_profile_card from "./components/job_description_page/Lawyers_profile_card/Lawyers_profile_card";
 import EditProfile from './components/EditProfile/EditProfile';
 import All_Lawyers from "./components/All_Lawyers/All_Lawyers";
