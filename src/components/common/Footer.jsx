@@ -19,16 +19,16 @@ const Footer = () => {
           We are a leading lawyer listing portal, dedicated to simplifying the process of connecting lawyers and clients.
           </p>
           <span class="mt-4 ">
-            <button class="btn btn-white btn-flat p-1 me-2 px-2 ficon">
+            <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
             <i class="bi bi-facebook"></i>
             </button>
-            <button class="btn btn-white btn-flat p-1 me-2 px-2 ficon">
+            <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
             <i class="bi bi-linkedin"></i>
             </button>
-            <button class="btn btn-white btn-flat p-1 me-2 px-2 ficon">
+            <button class="btn btn-white btn-flat pk-1 me-2 px-2 ficon">
             <i class="bi bi-twitter"></i>
             </button>
-            <button class="btn btn-white btn-flat p-1 px-2 ficon">
+            <button class="btn btn-white btn-flat pk-1 px-2 ficon">
             <i class="bi bi-envelope-fill"></i>
             </button>
           </span>

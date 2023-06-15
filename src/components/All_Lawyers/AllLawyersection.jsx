@@ -36,7 +36,7 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
     <div className="col-md-6">
         <div className="row">
            <div className="col-md-3 mt-3">
-               <img src={lawyer_pic} className='rounded-full' alt="" />
+               <img src={data.image} className='rounded-full lawpicd' alt="" />
           </div>
 
           <div className="col-md-9">
