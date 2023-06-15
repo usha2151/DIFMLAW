@@ -54,9 +54,9 @@ const Lawyers_profile_card = () => {
         </div>
         {/* lawyer profile card end */}
 
-        <div className="col-lg-4 mt-4">
+        <div className="col-lg-4 mt-3">
           {/* photos */}
-          <h3>Photos</h3>
+          <h4>Photos</h4>
           <div className="row">
             <div className="col-lg-6 col-6">
               <img src={lawyer_pics}></img>
@@ -68,15 +68,15 @@ const Lawyers_profile_card = () => {
           {/* photos */}
 
           {/* our location */}
-          <h3 className="mt-4">Our Location</h3>
+          <h4 className="mt-3">Our Location</h4>
 
           <div className="md:w-1/2">
             {/* Map */}
-            <div className="mt-4">
+            <div className="mt-2">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1.771070944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5335fabc2a66677f%3A0x8f85bd068d1afb8a!2s30%20N%20Gould%20St%2C%20Sheridan%2C%20WY%2082801%2C%20USA!5e0!3m2!1sen!2sin!4v1684734636299!5m2!1sen!2sin"
                 width="100%"
-                height="240"
+                height="170"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
@@ -89,7 +89,7 @@ const Lawyers_profile_card = () => {
           {/* our location */}
 
           {/* refer to a friend social media icons*/}
-          <h3 className="mt-4">Refer to a friend</h3>
+          <h4 className="mt-3">Refer to a friend</h4>
           <span class="mt-5">
             <button class="btn btn-dark btn-flat p-1 me-5 px-2 btn-primary">
               <i class="bi bi-facebook"></i>
@@ -107,8 +107,8 @@ const Lawyers_profile_card = () => {
           {/* refer to a friend social media icons*/}
 
           {/* job url link */}
-          <h4 className="mt-4">Copy job URL link</h4>
-          <div class="input-group mt-4">
+          <h5 className="mt-4">Copy job URL link</h5>
+          <div class="input-group mt-2">
             <div class="form-outline">
               <input
                 type="search"
@@ -122,8 +122,8 @@ const Lawyers_profile_card = () => {
           </div>
           {/* job url link */}
          {/* all lawyers card */}
-         <div className="row mt-5 law p-2 border border-info">
-          <h3>Top Lawyers</h3>
+         <div className="row mt-4 law p-2 border border-info">
+          <h4>Top Lawyers</h4>
            <All_lawyers_card />
            </div>
          {/* all lawyers card */}
