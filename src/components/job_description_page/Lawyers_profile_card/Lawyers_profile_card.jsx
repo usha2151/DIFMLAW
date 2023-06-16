@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Lawyer from "../../images/lawyers_profile.png";
 import { lawyer_pics } from "../../images";
 import "./Lawyers_profile_card.css";
@@ -9,21 +9,27 @@ import { useParams } from "react-router-dom";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { db } from "../../../firebase";
 const Lawyers_profile_card = () => {
+  const [setlawyerData, getlawyerData] = useState("");
   const params = useParams();
+  const id = params.LawId
   const fetchData = async () => {
-    const q = query(collection(db, "lawyers"));
-    const doc = await getDocs(q);
-    // console.log(doc.docs[0].data());
-    const data = doc.docs[0].data();
-    console.log(data);
+    const q = query(collection(db, "lawyers",id));
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      getlawyerData(doc.data())
+      console.log(doc.id, " => ", doc.data());
+    });
     console.log(params.LawId);
+    console.log("the id is"+ id);
   }
   useEffect (() => {
-    fetchData();
+    // fetchData();
   },[])
  
   
   return (
+   
     <div className="container">
       <div className="row">
         {/* lawyer profile card start */}
@@ -31,6 +37,7 @@ const Lawyers_profile_card = () => {
           <div className="row law ab d-flex border border-info justify-content-around p-4">
             <div className="col-lg-6">
               <div className="row ab">
+ 
                 <div className="col-lg-6 col-xs-12 d-flex justify-content-around">
                   <img src={Lawyer}></img>
                 </div>

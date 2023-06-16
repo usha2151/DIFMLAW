@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { collection, getDocs} from "firebase/firestore";
+import { collection, getDocs, query, where} from "firebase/firestore";
 import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
@@ -8,6 +8,7 @@ import ReactPaginate from 'react-paginate';
 const AllLawyersection = (props) => {
 const navigate = useNavigate();
     const [lawyers, setLawyers] = useState([]);
+    const [getSelectValue, setSelectValue] =useState("");
   const fetchPost = async () => {
        
     await getDocs(collection(db, "lawyers"))
@@ -15,24 +16,40 @@ const navigate = useNavigate();
             const newData = querySnapshot.docs
                 .map((doc) => ({...doc.data(), id:doc.id }));
             setLawyers(newData);                
-            console.log(lawyers);
+            // console.log(lawyers);
         }) 
     }
+    const selected = async () => {
+      
+      const q = query(collection(db, "lawyers"), where("work", "==", props.type))
+
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setSelectValue(doc.data());
+        // console.log(doc.id, " => ", doc.data());
+      },[]);
+      
+    }
+   
+   
+
 
 useEffect(()=>{
     fetchPost();
-    console.log(props.name)
+   
+   
 }, [])
 
 const [currentPage, setCurrentPage] = useState(0);
 const usersPerPage = 5;
 const offset = currentPage * usersPerPage;
 const currentUsers = lawyers.slice(offset, offset + usersPerPage);
+// const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
 
   return (
     <>
     {
-       currentUsers?.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).map((data,i)=>(
+       currentUsers?.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((val)=>{return props.type === '' ? val : selected() }).map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
     <div className="col-md-6">
@@ -70,7 +87,8 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
  </div>
  ))
     }
-
+    
+{/* 
 <div id="react-paginate" className='mt-5'>
           <ReactPaginate
             previousLabel={<i className="bi bi-arrow-left-circle-fill m-2 "></i>}
@@ -86,7 +104,7 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
             previousClassName={'paginate-prev'}
             nextClassName={'paginate-next'}
           />
-          </div>
+          </div> */}
  </>
   )
 }

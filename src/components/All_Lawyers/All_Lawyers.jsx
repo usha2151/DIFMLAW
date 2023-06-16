@@ -5,6 +5,12 @@ import Lawyerscards from '../Hero/Lawyerscards';
 import AllLawyersection from './AllLawyersection';
 
 const All_Lawyers = () => {
+  const [selectedValue, setSelectedValue] = useState('');
+
+  const handleSelectChange = (event) => {
+    setSelectedValue(event.target.value);
+    
+  };
   const [searchLawyer, setLawyerSearch] = useState("");
   const SubmitLawyer = () =>{
     console.log(searchLawyer);
@@ -14,7 +20,7 @@ const All_Lawyers = () => {
     <>
    
 <div class="container">
-<h1 className='text-center'>Discover more than <span className='discov'>5000+ Lawyers</span></h1>
+<h1 className='text-center' id='dis'>Discover more than <span className='discov'>5000+ Lawyers</span></h1>
 <div className="col-10 mx-auto">
     <div class="row mt-5 ">
       <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
@@ -194,7 +200,7 @@ const All_Lawyers = () => {
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
         <div class="input-group mb-3">
         <span class="input-group-text btn-primary" >Sort by : </span>
-          <select id="inputState"  class="form-select">
+          <select id="inputState"  class="form-select" onChange={handleSelectChange}>
             <option selected> Most relevant</option>
             <option value="Full Day">Full Day</option>
             <option value="Half Day">Half Day</option>
@@ -203,7 +209,7 @@ const All_Lawyers = () => {
        </div>
 
       {/* all lawyer section cards start */}
-       <AllLawyersection name={searchLawyer}/>
+       <AllLawyersection name={searchLawyer} type={selectedValue} />
       {/* all lawyer section cards end */}
 
      </div>
@@ -223,9 +229,9 @@ const All_Lawyers = () => {
                 </span>
               </h1>
             </div>
-            <div className="col-lg-6 featured">
+            <div className="col-lg-6 featured" >
               <div className="d-flex mt-4 float-xl-end">
-                <p className="fs-6 fw-bold mt-2">Show all lawyers</p>
+                <p className="fs-6 fw-bold mt-2"><a href='#dis' className='text-decoration-none fs-5 text-dark'>Show all lawyers</a></p>
                 <i class="bi bi-arrow-right ms-2 fs-2"></i>
               </div>
             </div>
