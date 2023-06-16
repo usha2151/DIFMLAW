@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { FirebaseProvider } from "./firebase";
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import Login from "./components/form/Login";
@@ -14,17 +15,17 @@ function App() {
     <>
      <Router>
       <Navbar />
-   
+      <FirebaseProvider>
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<EditProfile />} />
-        <Route path="/job/:LawId" element={<Lawyers_profile_card />} />
+        <Route path="/profile" element={<EditProfile />} />
+        <Route path="/job/:lawId" element={<Lawyers_profile_card />} />
         <Route path="/alllawyer" element={<All_Lawyers />} />
         <Route path="/admin" element={<Admin_dashboard />} />
       </Routes>
-    
+      </FirebaseProvider>
      <Footer />
     </Router>
     </>

@@ -5,27 +5,22 @@ import "./Lawyers_profile_card.css";
 import All_lawyers_card from "./All_lawyer_card/All_lawyers_card";
 import Lawyers_personal_information from "../Lawyers_personal_information/Lawyers_personal_information";
 import Expertise_and_services from "../Expertise_and_service/Expertise_and_services";
+import { useFirebase } from "../../../firebase";
 import { useParams } from "react-router-dom";
-import { query, collection, getDocs, where } from "firebase/firestore";
-import { db } from "../../../firebase";
-const Lawyers_profile_card = () => {
-  const [setlawyerData, getlawyerData] = useState("");
-  const params = useParams();
-  const id = params.LawId
-  const fetchData = async () => {
-    const q = query(collection(db, "lawyers",id));
 
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      getlawyerData(doc.data())
-      console.log(doc.id, " => ", doc.data());
-    });
-    console.log(params.LawId);
-    console.log("the id is"+ id);
-  }
-  useEffect (() => {
-    // fetchData();
-  },[])
+const Lawyers_profile_card = () => {
+  
+  const params = useParams();
+  const firebase = useFirebase();
+
+  const [data, setData] = useState("");
+  console.log(params);
+  console.log(data);
+
+  useEffect(() => {
+    firebase.getUsersId(params.lawId).then((value) => setData(value.data()));
+  }, []);
+
  
   
   return (
@@ -39,13 +34,13 @@ const Lawyers_profile_card = () => {
               <div className="row ab">
  
                 <div className="col-lg-6 col-xs-12 d-flex justify-content-around">
-                  <img src={Lawyer}></img>
+                  <img src={data.image} className="lprocls"></img>
                 </div>
                 <div className="col-lg-6 col-xs-12">
-                  <p className="fs-5 fw-bold mb-2">John Smith</p>
-                  <p className="fs-6 mb-2 laywer_city">Nepal, Kathmandu</p>
+                  <p className="fs-5 fw-bold mb-2">{data.username}</p>
+                  <p className="fs-6 mb-2 laywer_city">{data.address}</p>
                   <p className="fs-6 laywer_exp fw-bold">
-                    33+ Years in practice
+                  {data.experience} in practice
                   </p>
                   <p className="fw-bold mb-2 star fs-5">*****</p>
                 </div>
@@ -67,12 +62,12 @@ const Lawyers_profile_card = () => {
           </div>
 
           {/* lawyer personal information card start */}
-          <Lawyers_personal_information />
+          <Lawyers_personal_information Phone={data.number} Email={data.email} Work={data.work} Address={data.address}/>
           {/* lawyer personal information card end */}
 
           {/* expertise and services start */}
 
-          <Expertise_and_services />
+          <Expertise_and_services experience={data.experience}/>
           {/* expertise and services end */}
         </div>
         {/* lawyer profile card end */}

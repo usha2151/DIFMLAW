@@ -49,7 +49,7 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
   return (
     <>
     {
-       currentUsers?.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((val)=>{return props.type === '' ? val : selected() }).map((data,i)=>(
+       currentUsers?.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
     <div className="col-md-6">

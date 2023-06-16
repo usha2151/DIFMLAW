@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Expertise_and_services = () => {
+const Expertise_and_services = (props) => {
   return (
     <div className='row border law border-info mt-5 p-4'>
         <h2>Expertise and Services</h2>
@@ -17,7 +17,7 @@ const Expertise_and_services = () => {
                     </div>
                     <div className='col-lg-6 col-6'>
                         <p className='fs-6'>Family, Divorce</p>
-                        <p className='fs-6'>12+ Years</p>
+                        <p className='fs-6'>{props.experience}</p>
                         <p className='fs-6'>5</p>
                         <p className='fs-6'>$10</p>
                     </div>

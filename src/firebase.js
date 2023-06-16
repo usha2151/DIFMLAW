@@ -1,7 +1,14 @@
-
+// Your web app's Firebase configuration
+import { createContext, useContext } from "react";
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, doc, getDoc } from "@firebase/firestore";
 import { getStorage } from "firebase/storage";
+import "firebase/storage";
+import {getAuth } from "firebase/auth";
+
+
+
+const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
   apiKey: "AIzaSyBGlJAxV-RPR16FjHjHX9WHtUNamiyfUVY",
@@ -13,6 +20,26 @@ const firebaseConfig = {
   measurementId: "G-S5ZD0622Y6"
 };
 
-export  const app = initializeApp(firebaseConfig);
+export const useFirebase = () => useContext(FirebaseContext);
+export const FirebaseProvider = (props) => {
+
+  
+  const getUsersId = async (id) => {
+    const docRef = doc(db, "lawyers", id);
+    const result = await getDoc(docRef);
+    return result;
+  };
+
+   return < FirebaseContext.Provider 
+   value={{ getUsersId }}
+   >
+    {props.children}
+    </FirebaseContext.Provider>
+  }
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
+
+

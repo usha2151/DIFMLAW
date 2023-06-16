@@ -21,6 +21,12 @@
 .alllawyersection:nth-child(even) {
     background-color: white;
 }
+.alllawyersection:hover:nth-child(even){
+    background-color: whitesmoke;
+}
+.alllawyersection:hover:nth-child(odd){
+    opacity: .89;
+}
 
 #react-paginate ul {
     display: inline-block;

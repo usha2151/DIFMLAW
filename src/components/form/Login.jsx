@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { app } from '../../firebase';
-import { getAuth, signInWithEmailAndPassword} from 'firebase/auth';
+import React, { useState } from 'react';
+import { signInWithEmailAndPassword} from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../../firebase';
 
-const auth = getAuth(app);
 const Login = () => {
 
   const navigate = useNavigate();
@@ -66,7 +65,7 @@ const Login = () => {
           <div class="d-flex justify-content-between align-items-center">
 
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" required/>
+              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3"/>
               <label class="form-check-label" for="form2Example3">
                 Remember me
               </label>

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Lawyer_personal_info.css";
-const Lawyers_personal_information = () => {
+const Lawyers_personal_information = (props) => {
   return (
     <div className='row mt-5 law p-4 border border-info'>
         
@@ -17,10 +17,10 @@ const Lawyers_personal_information = () => {
                     <p className='info fw-bold'>Website</p>
                 </div>
                 <div className='col-lg-6 col-6'>
-                    <p className='info'>+917058645952</p>
-                    <p className='info'>John@gmail.com</p>
-                    <p className='info'>United State</p>
-                    <p className='info'>Full time</p>
+                    <p className='info'>{props.Phone}</p>
+                    <p className='info'>{props.Email}</p>
+                    <p className='info'>{props.Address}</p>
+                    <p className='info'>{props.Work}</p>
                     <p className='info'>www.Difmlaw.com/john</p>
                 </div>
             </div>

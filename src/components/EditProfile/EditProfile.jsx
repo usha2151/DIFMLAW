@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import "../EditProfile/EditProfile.css";
-import { getAuth} from 'firebase/auth';
 import profile from "../images/profile.jpg";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { db, app } from '../../firebase';
+import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { doc, updateDoc } from "firebase/firestore";
+import { auth } from '../../firebase';
 
 
-const auth = getAuth(app);
 const EditProfile = () => {
     const navigate = useNavigate();
     const [user, loading] = useAuthState(auth);
@@ -194,7 +193,7 @@ const handleUpdate = async (e) => {
                         <div className="row gutters">
 			                    <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
 				                      <div className="text-end">
-					                      <button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button>
+					                      <a href="/"><button type="button" id="submits" name="submit" className="btn btn-secondary">Cancel</button></a>
 					                      <button type="submit" id="submit" name="submit" className="btn btn-primary ms-2">Update</button>
 				                     </div>
 			                     </div>

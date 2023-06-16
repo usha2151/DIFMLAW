@@ -12,10 +12,13 @@ const All_Lawyers = () => {
     
   };
   const [searchLawyer, setLawyerSearch] = useState("");
+  const [lawyeradd, setLawyeradd] = useState("");
+
   const SubmitLawyer = () =>{
     console.log(searchLawyer);
     alert("search lawyer");
   }
+
   return (
     <>
    
@@ -26,17 +29,17 @@ const All_Lawyers = () => {
       <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
         <div class="input-group mb-3">
           <input type="text" class="form-control" onChange={(e)=> setLawyerSearch(e.target.value)} placeholder="Enter job title, keyword..."/>
-          <span class="input-group-text btn-primary"><i class="bi bi-search" onClick={SubmitLawyer}></i></span>
+          <span class="input-group-text"><i class="bi bi-search"></i></span>
         </div>
       </div>
       <div class="col-lg-5 col-md-6 col-sm-12 col-12 col-xl-5">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Location, country, city, state..."/>
-          <span class="input-group-text btn-primary" ><i class="bi bi-geo-alt"></i></span>
+          <input type="text" class="form-control" onChange={(e)=> setLawyeradd(e.target.value)} placeholder="Location, country, city, state..."/>
+          <span class="input-group-text" ><i class="bi bi-geo-alt"></i></span>
         </div>
       </div>
       <div class="col-lg-2 col-md-12 col-sm-12 col-12 col-xl-2">
-        <button class="btn btn-primary btn-block">Search</button>
+        <button class="btn btn-primary btn-block" onClick={SubmitLawyer}>Search</button>
       </div>
       </div>
       <p className='fs-6'>Popular searches :  Defense Lawyers, Real Estate </p>
@@ -209,7 +212,7 @@ const All_Lawyers = () => {
        </div>
 
       {/* all lawyer section cards start */}
-       <AllLawyersection name={searchLawyer} type={selectedValue} />
+       <AllLawyersection name={searchLawyer} location={lawyeradd}/>
       {/* all lawyer section cards end */}
 
      </div>
