@@ -1,8 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../images/Vector.svg";
 import './Footer.css';
 
 const Footer = () => {
+
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+    setError(false); // Reset error state when user starts typing
+  };
+
+  const handleSubscribe = () => {
+    const emailRegex = /\S+@\S+\.\S+/; // Email regex pattern
+
+    if(!email){
+      setError(true); // Set error state if email is null
+      alert("Please Enter Your Email!");
+    }
+   else{
+    if (!emailRegex.test(email)) {
+      setError(true); // Set error state if email is invalid
+      alert("Please enter a valid email address.");
+    } else {
+      // Perform subscription logic here, e.g., send API request to subscribe the email
+      // You can customize this logic based on your requirements
+      // For this example, let's simply set the subscribed state to true
+      setSubscribed(true);
+    }
+   }
+   
+  };
+
   return (
     <div>
       <div class="blockcode f-1">
@@ -62,14 +93,24 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-        <div class="input-group">
-        <div class="form-outline">
-          <input type="search" placeholder='Enter your email' class="form-control ss-2" /> 
+         <div class="input-group">
+         <p className="text-black">
+        {subscribed
+          ? "Thank you for subscribing!"
+          : ""}
+      </p>
+         {!subscribed && (
+          <>
+           <div class="form-outline">
+             <input type="search" placeholder='Enter your email' class="form-control ss-2" value={email}
+              onChange={handleEmailChange}/> 
            </div>
-            <button type="button" class="btn btn-primary s-1">
-              Subscribe 
-            </button>
-          </div>
+           <button type="button" class="btn btn-primary s-1" onClick={handleSubscribe}>
+             Subscribe 
+           </button>
+           </>
+        )}
+         </div>
         </div>
       </div>
       <small class="text-center mt-5">&copy; DIFM.LLC, 2023. All rights reserved.</small>
