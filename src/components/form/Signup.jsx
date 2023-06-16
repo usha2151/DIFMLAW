@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { app } from "../../firebase";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { db } from "../../firebase";
+import { auth } from "../../firebase";
 // import { useAuthState } from 'react-firebase-hooks/auth';
 import "../form/form.css";
 
-const auth = getAuth(app);
+
 const Signup = () => {
   const navigate = useNavigate();
   const [isLawyer, setIsLawyer] = useState(true);

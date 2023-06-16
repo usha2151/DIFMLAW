@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { app } from '../../firebase';
 import { getAuth, signInWithEmailAndPassword} from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../../firebase';
 
-const auth = getAuth(app);
 const Login = () => {
 
   const navigate = useNavigate();

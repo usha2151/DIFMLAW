@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import "../EditProfile/EditProfile.css";
-import { getAuth} from 'firebase/auth';
 import profile from "../images/profile.jpg";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { db, app } from '../../firebase';
+import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { doc, updateDoc } from "firebase/firestore";
+import { auth } from '../../firebase';
 
 
-const auth = getAuth(app);
 const EditProfile = () => {
     const navigate = useNavigate();
     const [user, loading] = useAuthState(auth);

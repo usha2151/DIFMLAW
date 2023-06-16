@@ -2,15 +2,14 @@ import React, {useEffect, useState} from 'react';
 import "./Footer.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut} from 'firebase/auth';
-import { getAuth} from 'firebase/auth';
 import logo from "../images/Vector.svg";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { db, app } from '../../firebase';
+import { db } from '../../firebase';
 import { Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
+import { auth } from '../../firebase';
 
-const auth = getAuth(app);
 
 const Navbar = () => {
   const navigate = useNavigate();
