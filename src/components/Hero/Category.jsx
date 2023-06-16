@@ -44,25 +44,6 @@ const Category = () => {
           {/* law categories end */}
 
           {/* suggestions field */}
-
-          {/* <div className="row bg-white want  rounded-3 suggestion shadow w-50 mx-auto">
-            <div className="col-lg-6 text-center col-xs-6">
-              <p className="fs-1 fw-bold">
-                Want{" "}
-                <span id="suggest" className="sugg">
-                  Our Suggestions
-                </span>{" "}
-                <span id="ques" className="sugg">
-                  <b>?</b>
-                </span>
-              </p>
-            </div>
-            <div className="col-lg-6 text-center col-xs-6 ">
-              <button className="btn btn-primary cont mt-4 w-75">
-                Contact Now
-              </button>
-            </div>
-          </div> */}
           <Contect_us />
         </div>
       </div>
@@ -81,10 +62,12 @@ const Category = () => {
               </h1>
             </div>
             <div className="col-lg-6 featured">
+            <a href="/alllawyer" className='text-dark'>
               <div className="d-flex mt-4 float-xl-end">
                 <p className="fs-6 fw-bold mt-2">Show all lawyers</p>
                 <i class="bi bi-arrow-right ms-2 fs-2"></i>
               </div>
+            </a>
             </div>
           </div>
 
