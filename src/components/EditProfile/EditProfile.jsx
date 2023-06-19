@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import "../EditProfile/EditProfile.css";
-import profile from "../images/profile.jpg";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db } from '../../firebase';
@@ -20,11 +19,10 @@ const EditProfile = () => {
     const [specialization, setSpecialization] = useState('');
     const [education, setEducation] = useState('');
     const [work, setWork] = useState('');
-    const [picture, setPicture] = useState('');
     const [bio, setBio] = useState('');
     const [location, setLocation] = useState('');
     const [setUserId ,getUserId] = useState("");
-  const [pic , setpic] = useState("");
+  // const [pic , setpic] = useState("");
   const [url , setUrl] = useState("");
     const fetchUserName = async () => {
     
@@ -49,12 +47,12 @@ const EditProfile = () => {
         setWork(data.work);
         setBio(data.summary);
         setEducation(data.education);
-        setPicture(data.image);
+        setUrl(data.image);
 
       
     };
    const handleImageChange = (e) => {
-     setpic(e.target.files[0]);
+     setUrl(e.target.files[0]);
          const storageRef = ref(storage, `/images/${e.target.files[0].name}`);
     const uploadTask = uploadBytesResumable(storageRef, e.target.files[0]);
     uploadTask.on(
@@ -120,7 +118,7 @@ const handleUpdate = async (e) => {
                 <div className="card-header">Profile Picture</div>
                 <div className="card-body text-center">
                    
-                    <img className="img-account-profile uspro mb-2" src={picture} alt=""/>
+                    <img className="img-account-profile uspro mb-2" src={url} alt=""/>
                    
                     <div className="small font-italic text-muted mb-4"><b className='fs-4'>{username}</b></div>
                     <label for="file" className="btn btn-primary w-10">Upload New Image</label>
