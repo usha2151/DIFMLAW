@@ -11,6 +11,7 @@ import lawyer_pic from "./lawyer_pic.png";
 import our_mission from "./difmlaw-our-mission.png";
 import user_friendly from "./difmlaw-user-friendly.png";
 import user_needs from "./difmlaw-needs.png";
+import our_promises from "./our_promises.png";
 
 
 export {
@@ -27,4 +28,5 @@ export {
          our_mission,
          user_friendly,
          user_needs,
+         our_promises,
 }

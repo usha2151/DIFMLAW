@@ -1,7 +1,3 @@
-.about:nth-child(even){
-background-color: aqua;
-flex-direction: row-reverse !important;
+.frend{
+    margin-top: -100px;
 }
-.about:nth-child(odd){
-    background-color: red;
-    }
