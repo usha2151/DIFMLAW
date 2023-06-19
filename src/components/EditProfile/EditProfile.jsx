@@ -7,7 +7,8 @@ import { db } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import { doc, updateDoc } from "firebase/firestore";
 import { auth } from '../../firebase';
-
+import { storage } from "../../firebase";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const EditProfile = () => {
     const navigate = useNavigate();
@@ -23,7 +24,8 @@ const EditProfile = () => {
     const [bio, setBio] = useState('');
     const [location, setLocation] = useState('');
     const [setUserId ,getUserId] = useState("");
-
+  const [pic , setpic] = useState("");
+  const [url , setUrl] = useState("");
     const fetchUserName = async () => {
     
       const q = query(collection(db, "lawyers"), where("uid", "==", user.uid));
@@ -51,7 +53,31 @@ const EditProfile = () => {
 
       
     };
+   const handleImageChange = (e) => {
+     setpic(e.target.files[0]);
+         const storageRef = ref(storage, `/images/${e.target.files[0].name}`);
+    const uploadTask = uploadBytesResumable(storageRef, e.target.files[0]);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+          const percent = Math.round(
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
 
+          // update progress
+          console.log(percent);
+      },
+      (err) => console.log(err),
+      () => {
+          // download url
+          getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+              setUrl(url);
+          }).catch((err)=>{
+            console.log(err);
+          })
+      }
+  ); 
+   }
     useEffect(() => {
       if (loading) return;
       fetchUserName();
@@ -61,6 +87,7 @@ const EditProfile = () => {
 
 const handleUpdate = async (e) => {
     e.preventDefault()
+
     const taskDocRef = doc(db,"lawyers", setUserId);
 
     try{
@@ -72,7 +99,7 @@ const handleUpdate = async (e) => {
         specialization: specialization,
         education: education,
         work: work,
-        image: picture,
+        image: url,
         address: location,
         summary: bio,
         
@@ -97,7 +124,7 @@ const handleUpdate = async (e) => {
                    
                     <div className="small font-italic text-muted mb-4"><b className='fs-4'>{username}</b></div>
                     <label for="file" className="btn btn-primary w-10">Upload New Image</label>
-                    <input type='file' id='file' onChange={(e) => {setPicture(e.target.value)}} />
+                    <input type='file' id='file' onChange={handleImageChange} />
                     
                 </div>
             </div>

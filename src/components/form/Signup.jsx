@@ -40,6 +40,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
   const [getImage, setImage] = useState("");
+  const [fileError ,setFileError] =useState("");
   // const [user, loading] = useAuthState(auth);
 
   const handleUsernameChange = (event) => {
@@ -67,6 +68,7 @@ const Signup = () => {
   };
   const handlePictureChange = (event) => {
     setPicture(event.target.files[0]);
+   
 
     
   };
@@ -102,6 +104,21 @@ const Signup = () => {
       setError("Please fill all the value!");
     } else {
       if (password === confirmPassword) {
+        if (!picture.name.match(/\.(jpg|jpeg|png)$/)) {
+          setFileError('Only Jpg/jpef, png formats are allowed !');
+         return false;
+        }
+           
+    const fileSizeKiloBytes = picture.size / 1024;
+    console.log(fileSizeKiloBytes);
+    if(fileSizeKiloBytes > 500){
+      setFileError("File size is less than 1 mb");
+      // setIsSuccess(false)
+      return false;
+    }
+        else {
+
+       
         const res = createUserWithEmailAndPassword(auth, email, password).then(
           async (res) => {
             const user = res.user;
@@ -144,6 +161,7 @@ const Signup = () => {
                   });
               }); 
             });
+          }
       } else {
         setError("Your password and confirm password is doesn't match!");
       }
@@ -333,6 +351,7 @@ const Signup = () => {
                 name="picture"
                 onChange={handlePictureChange}
               />
+              <span className="text-danger">{fileError}</span>
             </div>
             <div class="col-md-6">
               <label for="inputZip" class="form-label">
