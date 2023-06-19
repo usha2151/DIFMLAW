@@ -65,7 +65,7 @@ const Footer = () => {
           </span>
         </div>
         <div>
-          <p class="h5 mb-4 Devwares">Quick Links</p>
+          <p class="h5 mb-4 Devwares mt-4">Quick Links</p>
           <ul class="p-0 lis">
             <li class="my-2">
               <a class="text-dark text-decoration-none" href="/">Contact</a>
@@ -85,7 +85,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <p class="h5 mb-4" style={{fontWeight: '600'}}>DIFM Group</p>
+          <p class="h5 mb-4 mt-4" style={{fontWeight: '600'}}>DIFM Group</p>
           <ul class="p-0 lis">
             <li class="my-2">
               <a class="text-dark text-decoration-none" href="https://difm.llc/">Difm.llc</a>
@@ -99,7 +99,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-         <div class="input-group">
+         <div class="input-group mt-4">
          <p className="text-black">
         {subscribed
           ? "Thank you for subscribing!"
