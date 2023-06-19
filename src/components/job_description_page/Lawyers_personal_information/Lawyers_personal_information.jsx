@@ -2,7 +2,7 @@ import React from 'react'
 import "./Lawyer_personal_info.css";
 const Lawyers_personal_information = (props) => {
   return (
-    <div className='row mt-5 law p-4 border border-info'>
+    <div className='row mt-5 law p-4 border border-primary rounded'>
         
       <h2>Lawyer's Profile Information</h2>
       <p className='fs-6'>Basic contact Information</p>

@@ -2,10 +2,13 @@ import React, {useEffect, useState} from 'react';
 import { collection, getDocs} from "firebase/firestore";
 import { db } from '../../../../firebase';
 import { lawyer_pic } from '../../../images';
-import ReactPaginate from 'react-paginate';
+import { useNavigate } from 'react-router-dom';
 import "./All_lawyers_card.css";
 import { Link } from 'react-router-dom';
+
 const All_lawyers_card = () => {
+
+    const navigate = useNavigate();
     const [lawyers, setLawyers] = useState([]);
     const fetchPost = async () => {
          
@@ -26,6 +29,7 @@ const All_lawyers_card = () => {
   const usersPerPage = 5;
   const offset = currentPage * usersPerPage;
   const currentUsers = lawyers.slice(offset, offset + usersPerPage);
+
   return (
     <>
     {
@@ -43,10 +47,7 @@ const All_lawyers_card = () => {
             <h5 className='mt-2 fs-6 lawyer_name fw-bold'>{data.username}</h5>
             <span className='fs-6 lawyer_work_type fw-bold'>{data.work}</span>&nbsp;<span className="fw-bold mt-3 fs-6">*****</span><br></br>
             <span className='lawyer_work_experience fw-bold'>{data.experience}  in practice</span>
-            {/* <div className='d-flex'> */}
-             {/* <p className='fs-6 lawyer_work_type'>{data.work} {data.experience} in practice</p> */}
-            {/* <p className='fs-6 mx-4 lawyer_work_experience'>{data.experience}  Years in practice</p> */}
-            {/* </div> */}
+
             </div>
           </div>
       </div>
@@ -54,7 +55,7 @@ const All_lawyers_card = () => {
       <div className="col-lg-3">
           <div className="row">
            
-            <button className="view_more btn btn-primary cont mt-4 w-75 fs-6">
+            <button className="view_more btn btn-primary cont mt-5 w-75 fs-6" onClick={(e)=> navigate(`/job/${data.id}`)}>
               View Profile
             </button>
             
@@ -67,26 +68,10 @@ const All_lawyers_card = () => {
  ))
     }
     <div className='mt-2'>
-    <Link className='abd' to='/alllawyer'><p className='fs-5 text-center'>View More</p>
-</Link></div>
-   
-
-{/* <div id="react-paginate" className='mt-5'>
-          <ReactPaginate
-            previousLabel={<i className="bi bi-arrow-left-circle-fill m-2 "></i>}
-            nextLabel={<i className="bi bi-arrow-right-circle-fill m-2"></i>}
-            breakLabel={'...'}
-            breakClassName={'break-me'}
-            pageCount={Math.ceil(lawyers.length / usersPerPage)}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={(data) => setCurrentPage(data.selected)}
-            containerClassName={'pagination'}
-            activeClassName={'active'}
-            previousClassName={'paginate-prev'}
-            nextClassName={'paginate-next'}
-          />
-          </div> */}
+      <Link className='abd' to='/alllawyer'><p className='fs-5 text-center'>View More</p>
+      </Link>
+     </div>
+    
  </>
   )
 }

@@ -18,7 +18,7 @@ const About_us = () => {
         {
     about_section.map((val) => 
       <div className='about'>
-        <div className='row ab'>
+        <div className='row'>
             <div className='col-lg-6 col-12'>
             <h2 className='text-center fw-bold mt-4'>{val.title}</h2>
             <p className='fs-6 lh-sm mt-4 w-75 mx-auto'>{val.description}</p>
@@ -27,7 +27,7 @@ const About_us = () => {
              <img src={val.image} className='w-100'></img>
             </div>
         </div>
-       </div>
+        </div>
            )
         }
        

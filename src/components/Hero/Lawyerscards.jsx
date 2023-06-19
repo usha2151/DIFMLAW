@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { collection, getDocs} from "firebase/firestore";
 import { db } from '../../firebase';
-
+import { useNavigate } from 'react-router-dom';
 
 const Lawyerscards = () => {
-
+  const navigate = useNavigate();
     const [lawyers, setLawyers] = useState([]);
   const fetchPost = async () => {
        
@@ -50,7 +50,7 @@ useEffect(()=>{
               <span className="fs-6 exp">{data.experience} in practice</span>
             </div>
             <div className="col-lg-6 col-sm-6 col-6">
-              <button className="btn btn-primary viewbtn">
+              <button className="btn btn-primary viewbtn" onClick={(e)=> navigate(`/job/${data.id}`)}>
                 View Profile
               </button>
             </div>
