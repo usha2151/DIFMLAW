@@ -11,6 +11,7 @@ import "../form/form.css";
 
 
 const Signup = () => {
+  const [userErr,setUserErr] = useState("");
   const navigate = useNavigate();
   const [isLawyer, setIsLawyer] = useState(true);
   const [isUser, setIsUser] = useState(false);
@@ -160,7 +161,9 @@ const Signup = () => {
                     }).catch((err) => {alert(err);})
                   });
               }); 
-            });
+            }).catch((err)=>{
+              alert(err);
+            })
           }
       } else {
         setError("Your password and confirm password is doesn't match!");
@@ -198,7 +201,10 @@ const Signup = () => {
             });
             navigate("/login");
           }
-        );
+        ).catch((err)=>{
+          setUserErr(err);
+          alert(err);
+        })
       } else {
         setError("Your password and confirm password is doesn't match!");
       }
@@ -485,7 +491,9 @@ const Signup = () => {
                 value={confirmPassword}
                 onChange={handleConfirmPasswordChange}
               />
+                
             </div>
+            {/* <span className="text-danger">{userErr}</span> */}
             <div class="col-md-12 mb-4 ">
               <button
                 type="submit"

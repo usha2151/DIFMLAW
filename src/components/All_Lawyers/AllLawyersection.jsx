@@ -9,6 +9,7 @@ const AllLawyersection = (props) => {
     const navigate = useNavigate();
     const [lawyers, setLawyers] = useState([]);
     const [getSelectValue, setSelectValue] =useState([]);
+    const [set, unset] = useState(false);
     const fetchPost = async () => {
        
     await getDocs(collection(db, "lawyers"))
@@ -16,19 +17,24 @@ const AllLawyersection = (props) => {
             const newData = querySnapshot.docs
                 .map((doc) => ({...doc.data(), id:doc.id }));
             setLawyers(newData);                
-            // console.log(lawyers);
+            console.log(lawyers);
         }) 
     }
     const selected = async () => {
-      
+     
       const q = query(collection(db, "lawyers"), where("work", "==", props.type))
 
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setSelectValue(doc.data());
-        // console.log(doc.id, " => ", doc.data());
-        // console.log(getSelectValue);
-      },[]);
+      const querySnapshot = await getDocs(q).then((qq) => {
+        const newData = qq.docs
+        .map((doc) => ({...doc.data(), id:doc.id }));
+        setSelectValue(newData);                
+    console.log(getSelectValue);
+      });
+      // querySnapshot.forEach((doc) => {
+      //   setSelectValue(doc.data());
+      //   // console.log(doc.id, " => ", doc.data());
+      //   console.log(getSelectValue);
+      // },[]);
       
     }
    
@@ -45,12 +51,13 @@ const [currentPage, setCurrentPage] = useState(0);
 const usersPerPage = 5;
 const offset = currentPage * usersPerPage;
 const currentUsers = lawyers.slice(offset, offset + usersPerPage);
-// const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
+const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
 
   return (
     <>
-    {
-       currentUsers?.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.type === '' ? item : selected() }).map((data,i)=>(
+    { 
+      
+      currentUsers?.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.type === '' ? item : selected() }).map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
     <div className="col-md-6">
@@ -88,22 +95,7 @@ const currentUsers = lawyers.slice(offset, offset + usersPerPage);
  </div>
  ))
     }
-    {/* {
-      getSelectValue.map((val)=>{
-        
-          return (
-            <>
-         <h1>{val.specialization}</h1>
-        <h1>{val.username}</h1>
-        <h1>{val.work}</h1>
-        <h1>{val.experience}</h1>
-        </>
-          )
-
-        
-        
-      })
-    } */}
+ 
     
 
 <div id="react-paginate" className='mt-5'>
