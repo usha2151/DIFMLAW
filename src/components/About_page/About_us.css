@@ -1,0 +1,13 @@
+.about:nth-child(even){
+background-color: aqua;
+
+}
+.about:nth-child(odd){
+    background-color: red;
+    /* display: flex; */
+
+    }
+.ab:nth-child(even){
+    display: flex;
+    flex-direction: column-reverse;
+}

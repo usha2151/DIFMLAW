@@ -9,6 +9,7 @@ import Lawyers_profile_card from "./components/job_description_page/Lawyers_prof
 import EditProfile from './components/EditProfile/EditProfile';
 import All_Lawyers from "./components/All_Lawyers/All_Lawyers";
 import Admin_dashboard from "./components/Admin_dashboard/Admin_dashboard";
+import About_us from "./components/About_page/About_us";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/job/:lawId" element={<Lawyers_profile_card />} />
         <Route path="/alllawyer" element={<All_Lawyers />} />
         <Route path="/admin" element={<Admin_dashboard />} />
+        <Route path="/about" element={<About_us />} />
       </Routes>
       </FirebaseProvider>
      <Footer />

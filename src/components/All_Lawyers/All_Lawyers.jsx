@@ -7,10 +7,7 @@ import AllLawyersection from './AllLawyersection';
 const All_Lawyers = () => {
   const [selectedValue, setSelectedValue] = useState('');
 
-  const handleSelectChange = (event) => {
-    setSelectedValue(event.target.value);
-    
-  };
+
   const [searchLawyer, setLawyerSearch] = useState("");
   const [lawyeradd, setLawyeradd] = useState("");
 
@@ -203,7 +200,7 @@ const All_Lawyers = () => {
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
         <div class="input-group mb-3">
         <span class="input-group-text btn-primary" >Sort by : </span>
-          <select id="inputState"  class="form-select" onChange={handleSelectChange}>
+          <select id="inputState"  class="form-select" onChange={(e)=>setSelectedValue(e.target.value)}>
             <option selected> Most relevant</option>
             <option value="Full Day">Full Day</option>
             <option value="Half Day">Half Day</option>
@@ -212,7 +209,7 @@ const All_Lawyers = () => {
        </div>
 
       {/* all lawyer section cards start */}
-       <AllLawyersection name={searchLawyer} location={lawyeradd}/>
+       <AllLawyersection name={searchLawyer} location={lawyeradd} type={selectedValue}/>
       {/* all lawyer section cards end */}
 
      </div>
