@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Category.css";
-import Contect_us from '../Contect_us/Contect_us';
+import Contect_us from '../Contect_now/Contect_now';
 import CategoryCards from "./CategoryCards";
 import { category } from "../constant/data";
 import Join_Network from '../join_network/Join_Network';

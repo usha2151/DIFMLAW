@@ -76,6 +76,12 @@ const Footer = () => {
             <li class="my-2">
               <a class="text-dark text-decoration-none" href="/alllawyer">Lawyers</a>
             </li>
+            <li class="my-2">
+              <a class="text-dark text-decoration-none" href="/privacy_policy">Privacy Policy</a>
+            </li>
+            <li class="my-2">
+              <a class="text-dark text-decoration-none" href="/terms_condition">Terms and Conditions</a>
+            </li>
           </ul>
         </div>
         <div>
