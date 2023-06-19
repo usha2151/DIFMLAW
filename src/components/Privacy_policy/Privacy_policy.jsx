@@ -1,9 +1,10 @@
 import React from 'react'
+import "../Contect_us/Contect_us.css";
 
 const Privacy_policy = () => {
   return (
     <>
-    <div className="container border border-primary mt-5 rounded mb-5" style={{backgroundColor: "var(--bg-lightgray-700)"}}>
+    <div className="container border border-primary forms mt-5 rounded mb-5" style={{backgroundColor: "var(--bg-lightgray-700)"}}>
        <h2 className='text-center mt-5'>Privacy Policy</h2>
       <div className='w-75 mx-auto'>
        <p className='fs-6 mt-5'>Do iT For Me LLC, the parent company of DIFM Law, is committed to protecting the privacy of our users. This privacy policy explains how we collect, use, and disclose your personal information when you use our website.</p>

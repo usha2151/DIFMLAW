@@ -8,7 +8,8 @@
     width: 80%;
   }
   .content{
-    width: 250px;
+    width: 480px;
+    font-size: 18px;
   }
   .Devwares{
     font-weight: 600;
@@ -70,3 +71,17 @@
   height: 55px;
 }
 
+@media only screen and (max-width: 540px) {
+  .content{
+    width: 300px;
+  }
+  .s-1{
+    width: 90px;
+    border-radius: 0px 5px 5px 0px !important; 
+    margin-top: 0px;
+  }
+  .ss-2{
+    width: 190px;
+    border-radius:  5px 0px 0px 5px !important;
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Contect_us.css";
 
 const Contect_us = () => {
   return (
@@ -24,7 +25,7 @@ const Contect_us = () => {
           </span>
         </div>
 
-        <div className="col-md-6 border border-primary rounded" style={{backgroundColor: "var(--bg-lightgray-700)"}}>
+        <div className="col-md-6 border border-primary rounded forms" style={{backgroundColor: "var(--bg-lightgray-700)"}}>
         <form
             class="row g-3 me-4 mx-4 mt-4"
             // onSubmit={handleLawyerFormSubmit}
