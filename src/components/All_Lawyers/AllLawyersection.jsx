@@ -6,10 +6,10 @@ import ReactPaginate from 'react-paginate';
 
 
 const AllLawyersection = (props) => {
-const navigate = useNavigate();
+    const navigate = useNavigate();
     const [lawyers, setLawyers] = useState([]);
     const [getSelectValue, setSelectValue] =useState([]);
-  const fetchPost = async () => {
+    const fetchPost = async () => {
        
     await getDocs(collection(db, "lawyers"))
         .then((querySnapshot)=>{              

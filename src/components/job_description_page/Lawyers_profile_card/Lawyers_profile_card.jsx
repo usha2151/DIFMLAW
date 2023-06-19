@@ -29,7 +29,7 @@ const Lawyers_profile_card = () => {
       <div className="row">
         {/* lawyer profile card start */}
         <div className="col-lg-8 p-5 ">
-          <div className="row law ab d-flex border border-info justify-content-around p-4">
+          <div className="row law ab d-flex border border-primary rounded justify-content-around p-4">
             <div className="col-lg-6">
               <div className="row ab">
  
@@ -140,7 +140,7 @@ const Lawyers_profile_card = () => {
           </div>
           {/* job url link */}
          {/* all lawyers card */}
-         <div className="row mt-4 law p-2 border border-info">
+         <div className="row mt-4 law p-2 border border-primary rounded">
           <h4>Top Lawyers</h4>
            <All_lawyers_card />
            </div>
