@@ -1,11 +1,13 @@
 import React from 'react'
 import { our_mission, user_friendly,user_needs, our_promises } from '../images';
+import Contect_sugg from './Contect_sugg';
 import "./About_us.css";
 const About_us = () => {
   return (
   
    <>
    <div className='container'>
+    
         <h2 className='text-center fw-bold mt-5'>About Us</h2>
         <p className='fs-5 text-center w-50 mx-auto lh-sm' style={{textAlign: "justify"}}>Connecting lawyers and seekers from around the world in a seamless and efficient way is our mission at DIFM Law.</p>
          
@@ -49,8 +51,9 @@ const About_us = () => {
             </div>
         </div>
        
+       <Contect_sugg />
   </div>
- 
+  
    </>
   )
 }

@@ -36,56 +36,23 @@ const Signup = () => {
   const [work, setWork] = useState("");
   const [picture, setPicture] = useState([]);
   const [bio, setBio] = useState("");
-  const [state, setState] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
   const [getImage, setImage] = useState("");
   const [fileError ,setFileError] =useState("");
+
+
+  //this for user form
+  const [name, setName] = useState("");
+  const [emails, setEmails] = useState("");
+  const [state, setState] = useState("");
+  const [number, setNumber] = useState("");
+  const [pass, setPass] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
   // const [user, loading] = useAuthState(auth);
 
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePhoneChange = (event) => {
-    setPhone(event.target.value);
-  };
-  const handleExperienceChange = (event) => {
-    setExperience(event.target.value);
-  };
-  const handleSpecializationChange = (event) => {
-    setSpecialization(event.target.value);
-  };
-  const handleLocationChange = (event) => {
-    setLocation(event.target.value);
-  };
-  const handleWorkChange = (event) => {
-    setWork(event.target.value);
-  };
-  const handlePictureChange = (event) => {
-    setPicture(event.target.files[0]);
-   
-
-    
-  };
-  const handleStateChange = (event) => {
-    setState(event.target.value);
-  };
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-  };
-  const handleBioChange = (event) => {
-    setBio(event.target.value);
-  };
-
+  
   const handleLawyerFormSubmit = (event) => {
     event.preventDefault();
     // Write logic to submit the form data to the server
@@ -176,27 +143,26 @@ const Signup = () => {
     event.preventDefault();
     // Write logic to submit the form data to the server
     if (
-      !username ||
-      !email ||
-      !phone ||
+      !name ||
+      !emails ||
+      !number ||
       !state ||
-      !password ||
-      !confirmPassword
+      !pass ||
+      !confirmPass
     ) {
       setError("Please fill all the value!");
     } else {
-      if (password === confirmPassword) {
-        const res = createUserWithEmailAndPassword(auth, email, password).then(
+      if (pass === confirmPass) {
+        const res = createUserWithEmailAndPassword(auth, emails, pass).then(
           async (res) => {
             const user = res.user;
             console.log(user);
             await addDoc(collection(db, "users"), {
               uid: user.uid,
-              username,
+              name,
               authProvider: "local",
-              email,
-              email: email,
-              number: phone,
+              email: emails,
+              number: number,
               state: state,
             });
             navigate("/login");
@@ -244,7 +210,7 @@ const Signup = () => {
                 class="form-control"
                 id="inputEmail4"
                 value={username}
-                onChange={handleUsernameChange}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div class="col-md-6">
@@ -257,7 +223,7 @@ const Signup = () => {
                 class="form-control"
                 id="inputPassword4"
                 value={email}
-                onChange={handleEmailChange}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div class="col-md-6">
@@ -270,7 +236,7 @@ const Signup = () => {
                 class="form-control"
                 id="inputPassword4"
                 value={phone}
-                onChange={handlePhoneChange}
+                onChange={(e) => setPhone(e.target.value)}
               />
             </div>
 
@@ -281,7 +247,7 @@ const Signup = () => {
               <select
                 id="inputState"
                 value={experience}
-                onChange={handleExperienceChange}
+                onChange={(e) => setExperience(e.target.value)}
                 class="form-select"
               >
                 <option selected>Choose...</option>
@@ -304,7 +270,7 @@ const Signup = () => {
               <select
                 id="inputState"
                 value={specialization}
-                onChange={handleSpecializationChange}
+                onChange={(e) => setSpecialization(e.target.value)}
                 class="form-select"
               >
                 <option selected>Select your expertise</option>
@@ -325,7 +291,7 @@ const Signup = () => {
               </label>
                <div class="input-group mb-3">
                <input type="text" class="form-control" id="inputZip" placeholder="Location, country, city, state..." value={location}
-                onChange={handleLocationChange}/>
+                onChange={(e) => setLocation(e.target.value)}/>
                <span class="input-group-text" ><i class="bi bi-geo-alt"></i></span>
              </div>
             </div>
@@ -336,7 +302,7 @@ const Signup = () => {
               <select
                 id="inputState"
                 value={work}
-                onChange={handleWorkChange}
+                onChange={(e) => setWork(e.target.value)}
                 class="form-select"
               >
                 <option selected>Choose..</option>
@@ -355,7 +321,7 @@ const Signup = () => {
                 id="inputZip"
                 // value={picture}
                 name="picture"
-                onChange={handlePictureChange}
+                onChange={(e) => setPicture(e.target.files[0])}
               />
               <span className="text-danger">{fileError}</span>
             </div>
@@ -369,7 +335,7 @@ const Signup = () => {
                 class="form-control"
                 id="inputZip"
                 value={password}
-                onChange={handlePasswordChange}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div class="col-md-6">
@@ -382,7 +348,7 @@ const Signup = () => {
                 class="form-control"
                 id="inputZip"
                 value={confirmPassword}
-                onChange={handleConfirmPasswordChange}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
             <div class="col-md-12">
@@ -395,7 +361,7 @@ const Signup = () => {
                 id="form6Example7"
                 rows="4"
                 value={bio}
-                onChange={handleBioChange}
+                onChange={(e) => setBio(e.target.value)}
               ></textarea>
             </div>
             <p className="text-danger fs-5">{error}</p>
@@ -421,8 +387,8 @@ const Signup = () => {
                 placeholder="Enter your full name"
                 class="form-control"
                 id="inputEmail4"
-                value={username}
-                onChange={handleUsernameChange}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div class="col-md-6">
@@ -434,8 +400,8 @@ const Signup = () => {
                 placeholder="Enter your email"
                 class="form-control"
                 id="inputPassword4"
-                value={email}
-                onChange={handleEmailChange}
+                value={emails}
+                onChange={(e) => setEmails(e.target.value)}
               />
             </div>
             <div class="col-md-6">
@@ -447,8 +413,8 @@ const Signup = () => {
                 placeholder="Enter your number"
                 class="form-control"
                 id="inputPassword4"
-                value={phone}
-                onChange={handlePhoneChange}
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
               />
             </div>
 
@@ -462,7 +428,7 @@ const Signup = () => {
                 class="form-control"
                 id="inputZip"
                 value={state}
-                onChange={handleStateChange}
+                onChange={(e) => setState(e.target.value)}
               />
             </div>
 
@@ -475,8 +441,8 @@ const Signup = () => {
                 placeholder="Password "
                 class="form-control"
                 id="inputZip"
-                value={password}
-                onChange={handlePasswordChange}
+                value={pass}
+                onChange={(e) => setPass(e.target.value)}
               />
             </div>
             <div class="col-md-6">
@@ -488,8 +454,8 @@ const Signup = () => {
                 placeholder="Confirm password"
                 class="form-control"
                 id="inputZip"
-                value={confirmPassword}
-                onChange={handleConfirmPasswordChange}
+                value={confirmPass}
+                onChange={(e) => setConfirmPass(e.target.value)}
               />
                 
             </div>
