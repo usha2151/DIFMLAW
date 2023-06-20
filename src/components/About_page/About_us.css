@@ -4,6 +4,9 @@
 .s{
     margin-left: 80px;
 }
+.consugg{
+   margin-top: -150px !important;
+}
 
 @media only screen and (max-width: 1200px) {
     .frend{
@@ -15,4 +18,8 @@
     .ab-1{
         flex-direction: column-reverse !important;
     }
+    .consugg{
+        margin-top: 30px !important;
+     }
+     
   }
