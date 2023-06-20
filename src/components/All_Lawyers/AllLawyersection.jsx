@@ -11,7 +11,7 @@ const AllLawyersection = (props) => {
     const [getSelectValue, setSelectValue] =useState([]);
     const [set, unset] = useState(false);
     const fetchPost = async () => {
-       
+      
     await getDocs(collection(db, "lawyers"))
         .then((querySnapshot)=>{              
             const newData = querySnapshot.docs
@@ -21,7 +21,7 @@ const AllLawyersection = (props) => {
         }) 
     }
     const selected = async () => {
-     
+  
       const q = query(collection(db, "lawyers"), where("work", "==", props.type))
 
       const querySnapshot = await getDocs(q).then((qq) => {
@@ -30,12 +30,7 @@ const AllLawyersection = (props) => {
         setSelectValue(newData);                
     console.log(getSelectValue);
       });
-      // querySnapshot.forEach((doc) => {
-      //   setSelectValue(doc.data());
-      //   // console.log(doc.id, " => ", doc.data());
-      //   console.log(getSelectValue);
-      // },[]);
-      
+      unset(true); 
     }
    
    
@@ -56,8 +51,8 @@ const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
   return (
     <>
     { 
-      
-      currentUsers.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.type === '' ? item : selected() ? currentUser.map((data,i)=> {return data}) : alert("not done") }).map((data,i)=>(
+     !set && (
+      currentUsers.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.type === '' ? item : selected() }).map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
     <div className="col-md-6">
@@ -94,11 +89,13 @@ const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
     </div>
  </div>
  ))
+ )
     }
 
-{ 
-      
-      currentUser.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.type === '' ? item : selected() ? currentUser.map((data,i)=> {return data}) : alert("not done") }).map((data,i)=>(
+
+    { 
+     set && (
+      currentUser.filter((item)=>{return props.name.toLowerCase() === '' ? item : item.specialization.toLowerCase().includes(props.name) }).filter((items)=>{return props.location.toLowerCase() === '' ? items : items.address.toLowerCase().includes(props.location)}).filter((item)=>{return props.type === '' ? item : selected() }).map((data,i)=>(
         <div className='view_buttons mt-4 alllawyersection border border-dark'>
     <div className="row mx-auto"> 
     <div className="col-md-6">
@@ -135,6 +132,8 @@ const currentUser = getSelectValue.slice(offset, offset + usersPerPage);
     </div>
  </div>
  ))
+ )
+ 
     }
  
     
