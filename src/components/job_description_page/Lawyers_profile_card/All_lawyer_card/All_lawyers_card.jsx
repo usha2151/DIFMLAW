@@ -34,12 +34,12 @@ const All_lawyers_card = () => {
     <>
     {
        currentUsers?.map((data,i)=>(
-        <div className='view_buttons load_more mt-2 border border-dark h-50'>
+        <div className='view_buttons load_more mt-2 border border-dark'>
       <div className="row"> 
       <div className="col-lg-9">
-          <div className="row p-1">
+          <div className="row">
             <div className="col-lg-4 col-6 mt-2">
-                <img src={lawyer_pic} className='rounded-full' alt="" />
+                <img src={data.image} className='rounded-circle w-75 pics-pro' alt="" />
             </div>
 
             <div className="col-lg-8 col-6">
