@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 const Expertise_and_services = (props) => {
   return (
@@ -24,10 +25,10 @@ const Expertise_and_services = (props) => {
                 </div>
                 <div className='row'>
                     <div className='col-lg-6 col-6'>
-                        <button className='btn btn-primary'>Connect Now</button>
+                        <Link to="/contect_us"><button className='btn btn-primary'>Connect Now</button></Link>
                     </div>
                     <div className='col-lg-6 col-6'>
-                    <button className='btn btn-secondary'>Back</button>
+                    <Link to="/"><button className='btn btn-secondary'>Back</button></Link>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Lawyer from "../../images/lawyers_profile.png";
 import { lawyer_pics } from "../../images";
+import { Link } from "react-router-dom";
 import "./Lawyers_profile_card.css";
 import All_lawyers_card from "./All_lawyer_card/All_lawyers_card";
 import Lawyers_personal_information from "../Lawyers_personal_information/Lawyers_personal_information";
@@ -48,9 +48,10 @@ const Lawyers_profile_card = () => {
             </div>
             <div className="col-lg-6 text-end d-flex justify-content-end gap-2">
               <div className="me-4 w-50">
-                <button className="btn btn-primary me-4 w-100 rounded-pill mt-5">
+               <Link to="/contect_us"><button className="btn btn-primary me-4 w-100 rounded-pill mt-5">
                   Contact Now
                 </button>
+                </Link> 
               </div>
               <div>
                 <span className="fw-bold fs-3">
