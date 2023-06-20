@@ -81,49 +81,49 @@ const All_Lawyers = () => {
         <div class="form-check mt-2">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
            <label class="form-check-label" for="flexCheckDefault">
-            Design
+            Injury Lawyers
            </label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
            <label class="form-check-label" for="flexCheckChecked">
-            Sales
+            Family Law Lawyers
            </label>
         </div>
         <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
            <label class="form-check-label" for="flexCheckDefault">
-            Marketting
+           Defense Lawyers
            </label>
         </div>
         <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
            <label class="form-check-label" for="flexCheckDefault">
-            Finance
+           Corporate Lawyers
            </label>
         </div>
         <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
            <label class="form-check-label" for="flexCheckDefault">
-            Technology
+           Immigration Lawyers
            </label>
         </div>
         <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
            <label class="form-check-label" for="flexCheckDefault">
-           Engineering
+           Property Lawyers
            </label>
         </div>
         <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
            <label class="form-check-label" for="flexCheckDefault">
-           Business
+           Real Estate Lawyers
            </label>
         </div>
         <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
            <label class="form-check-label" for="flexCheckDefault">
-           Human Resource
+           Employment Lawyers
            </label>
         </div>
 
@@ -164,25 +164,25 @@ const All_Lawyers = () => {
          <div class="form-check mt-2">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
            <label class="form-check-label" for="flexCheckDefault">
-           $5 - $100
+           Uttar Pradesh
            </label>
         </div>
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
            <label class="form-check-label" for="flexCheckChecked">
-           $100 - $1000
+           Madhya Pradesh
            </label>
         </div>
         <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
            <label class="form-check-label" for="flexCheckDefault">
-           $1000 - $5000
+           Andhra Pradesh
            </label>
         </div>
         <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
            <label class="form-check-label" for="flexCheckDefault">
-           $5000 and above
+           Himachal Pradesh
            </label>
         </div>
 
