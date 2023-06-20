@@ -16,6 +16,9 @@ const Signup = () => {
   const [isLawyer, setIsLawyer] = useState(true);
   const [isUser, setIsUser] = useState(false);
 
+ 
+ 
+
   const handleRegisterAsLawyer = () => {
     setIsLawyer(true);
     setIsUser(false);
@@ -124,7 +127,7 @@ const Signup = () => {
                         image: url
                       })
                      .then(()=>{alert("uploaded");                    
-                     navigate("/login");
+                     navigate("/");
                     }).catch((err) => {alert(err);})
                   });
               }); 
@@ -165,7 +168,7 @@ const Signup = () => {
               number: number,
               state: state,
             });
-            navigate("/login");
+            navigate("/");
           }
         ).catch((err)=>{
           setUserErr(err);
@@ -180,9 +183,13 @@ const Signup = () => {
   return (
     <>
       <div className="container  form-container mt-4 form-control">
-        <button
+
+        {isLawyer && (
+          <>
+          <button
           type="button"
           class="btn btn-primary me-4 mt-2"
+          id="regist1"
           onClick={handleRegisterAsLawyer}
         >
           Register as Lawyer
@@ -190,12 +197,11 @@ const Signup = () => {
         <button
           type="button"
           class="btn btn-light mt-2"
+          id="regist2"
           onClick={handleRegisterAsUser}
         >
           Register as User
         </button>
-
-        {isLawyer && (
           <form
             class="row g-3 me-4 mx-4 mt-4"
             onSubmit={handleLawyerFormSubmit}
@@ -311,15 +317,15 @@ const Signup = () => {
               </select>
             </div>
             <div class="col-md-6">
-              <label for="inputZip" class="form-label">
-                Profile Picture
+              <p class="form-label  fs-6">Profile Picture</p>
+              <label for="inputpictur" class="form-control pic5">
+                Choose your profile picture
               </label>
               <input
                 type="file"
                 placeholder="Choose your profile picture"
                 class="form-control"
-                id="inputZip"
-                // value={picture}
+                id="inputpictur"
                 name="picture"
                 onChange={(e) => setPicture(e.target.files[0])}
               />
@@ -374,9 +380,27 @@ const Signup = () => {
               </button>
             </div>
           </form>
+          </>
         )}
 
         {isUser && (
+          <>
+          <button
+          type="button"
+          class="btn btn-light me-4 mt-2"
+          id="regist1"
+          onClick={handleRegisterAsLawyer}
+        >
+          Register as Lawyer
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary mt-2"
+          id="regist2"
+          onClick={handleRegisterAsUser}
+        >
+          Register as User
+        </button>
           <form class="row g-3 me-4 mx-4 mt-4" onSubmit={handleUserFormSubmit}>
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">
@@ -469,6 +493,7 @@ const Signup = () => {
               </button>
             </div>
           </form>
+          </>
         )}
       </div>
     </>
