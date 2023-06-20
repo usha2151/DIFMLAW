@@ -63,7 +63,7 @@ const Category = () => {
             </div>
             <div className="col-lg-6 featured">
             <a href="/alllawyer" className='text-dark'>
-              <div className="d-flex mt-4 float-xl-end">
+              <div className="d-flex mt-4 float-xl-end sal">
                 <p className="fs-6 fw-bold mt-2">Show all lawyers</p>
                 <i class="bi bi-arrow-right ms-2 fs-2"></i>
               </div>

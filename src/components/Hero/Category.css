@@ -70,9 +70,13 @@ line-height: 75px;
     background-color: var(--bg-dimwhite-900);
 }
 .viewbtn{
-    background-color: var(--text-blue-700);
     border-radius: 50px !important;
     font-size: smaller;
+}
+
+.sfcs:hover{
+   background-color: white !important;
+   color: var(--text-blue-900);
 }
 
 .exp{
@@ -134,5 +138,18 @@ line-height: 21px !important;
       margin-bottom: 10px !important;
       
     }
-  
+    .suggestion{
+        height: 160px !important;
+        width: 305px !important;
+    }
+    .fs-1{      
+        font-size: x-large !important;
+    }
+    .cont{
+        margin-top: -40px !important;
+    }
+    .sal{
+        margin-top: -80px !important;
+    }
+    
   }
